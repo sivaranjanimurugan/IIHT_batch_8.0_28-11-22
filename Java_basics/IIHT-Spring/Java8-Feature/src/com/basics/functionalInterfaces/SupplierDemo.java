@@ -2,15 +2,12 @@ package com.basics.functionalInterfaces;
 
 import java.util.function.Supplier;
 
-public class SupplierDemo implements Supplier<String>{
+public class SupplierDemo {
 
-	@Override
-	public String get() {
-		return "Hello world!!";
-	}
-	
 	public static void main(String[] args) {
-		Supplier<String> sub = new SupplierDemo();
+		Supplier<String> sub = () -> {
+			return "Hello";
+		};
 		System.out.println(sub.get());
 	}
 
