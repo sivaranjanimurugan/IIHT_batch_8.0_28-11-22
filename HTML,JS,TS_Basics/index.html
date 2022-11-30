@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn JS</title>
 </head>
+
 <body>
     <h1>Learn Java Script</h1>
     <script>
@@ -15,6 +17,46 @@
         var laptop;
         laptop = "lg";
         console.log(name, age);
+
+        function alertUser() {
+            var favColor = "blue"; //local variable
+            alert("This user has logged in " + name);
+        }
+        alertUser();
+        // console.log(favColor);
+        function operators(num) {
+            if (num > 20) {
+                console.log("Number greater than 20");
+            } else if (num == 20) {
+                console.log("Number is equal to 20");
+            } else {
+                console.log("Number less than 20");
+            }
+        }
+        operators(20);
+
+        function creditScore(score) {
+            var creditLimit;
+            switch (score) {
+                case 800: creditLimit = "above 1 lac";
+                    break;
+                case 700: creditLimit = "50,000 to 1 lac";
+                    break;
+                case 600: creditLimit = "20,000 to 50,000";
+                    break;
+                default: creditLimit = "not eligible";
+            }
+            console.log(creditLimit);
+        }
+        creditScore(100);
+
+        function counting() {
+            for (let i = 1; i <= 10; i++) {
+                console.log(i);
+            }
+        }
+        counting();
     </script>
 </body>
+
 </html>
