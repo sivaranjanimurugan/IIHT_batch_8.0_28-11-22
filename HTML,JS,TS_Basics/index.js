@@ -147,3 +147,23 @@ function constNumbers() {
 }
 constNumbers();
 
+function dogs(){
+    this.dogname = dogname;
+    throw new error("This is not a wild animal");
+}
+
+dogs.prototype.display = function(){
+    return "this dog breed is " + this.dogname;
+}
+
+//constructor func
+function Animal(dogname){
+  this.dogname = dogname;
+}
+
+//create and object witout using constructor
+Animal.prototype = Object.create(dogs.prototype);
+let tommy = new Animal("German shepherd");
+console.log(tommy.display());
+
+
