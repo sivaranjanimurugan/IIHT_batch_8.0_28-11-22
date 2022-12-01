@@ -166,4 +166,8 @@ Animal.prototype = Object.create(dogs.prototype);
 let tommy = new Animal("German shepherd");
 console.log(tommy.display());
 
+function greeting(){
+    alert("Hello !!!");
+}
+
 
