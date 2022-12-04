@@ -58,6 +58,16 @@ select {
     border-radius: 4px;
 }
 
+/* input[type=tel],
+select {
+    width: 100%;
+    padding: 7px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
+
 button[type=submit] {
     width: 25%;
     background-color: #55b7d4;

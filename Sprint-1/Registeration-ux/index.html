@@ -22,7 +22,8 @@
                     <div class="column">
                         <label for="fname">Full Name</label>
                         <br />
-                        <input type="text" id="fname" name="fullname" placeholder="Enter your name">
+                        <input type="text" id="fname" name="fullname" placeholder="Enter your name" pattern="[A-Za-z ]{3,32}"
+                        title="Name should contains alphabets only">
                     </div>
                     <div class="column">
                         <label for="dob">Date of birth</label>
@@ -39,7 +40,8 @@
                     <div class="column">
                         <label for="mobnumber">Mobile Number</label>
                         <br />
-                        <input type="text" id="mobnumber" name="mobnumber" placeholder="Enter mobile number">
+                        <input type="text" id="mobnumber" name="mobnumber" placeholder="Enter mobile number" pattern="^[789]\d{9,9}$"
+                        title="Format: start with 7-9 and remaing 9 digit with 0-9">
                     </div>
                     <div class="column">
                         <label for="gender">Gender</label>
