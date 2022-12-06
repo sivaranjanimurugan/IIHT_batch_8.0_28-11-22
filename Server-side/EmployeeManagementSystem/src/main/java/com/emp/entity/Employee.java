@@ -1,14 +1,22 @@
 package com.emp.entity;
 
-public class Emplyee {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String ename;
 	private String eposition;
 	private String email;
 	private Integer salary;
 	
-	public Emplyee() {
+	public Employee() {
 	}
 	
 	public Integer getId() {
@@ -44,7 +52,7 @@ public class Emplyee {
 	
 	@Override
 	public String toString() {
-		return "Emplyee [id=" + id + ", ename=" + ename + ", eposition=" + eposition + ", email=" + email + ", salary="
+		return "Employee [id=" + id + ", ename=" + ename + ", eposition=" + eposition + ", email=" + email + ", salary="
 				+ salary + "]";
 	}
 
