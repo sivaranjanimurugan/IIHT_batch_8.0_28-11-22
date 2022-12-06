@@ -7,8 +7,8 @@ import com.emp.Repositories.IEmployeeRepository;
 import com.emp.entity.Employee;
 
 @Service
-public class EmployeeServiceImpl implements IEmployeeService{
-	
+public class EmployeeServiceImpl implements IEmployeeService {
+
 	@Autowired
 	private IEmployeeRepository empRepo;
 
