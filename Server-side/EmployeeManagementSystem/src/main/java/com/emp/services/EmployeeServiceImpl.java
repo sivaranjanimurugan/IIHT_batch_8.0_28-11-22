@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.emp.Repositories.IEmployeeRepository;
 import com.emp.entity.Employee;
+import com.emp.repository.IEmployeeRepository;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService {
