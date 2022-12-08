@@ -3,8 +3,11 @@ package com.res.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import com.res.entity.Resource;
 
+@Service
 public class ResourceServiceImpl implements IResourceService {
 
 	List<Resource> resList = List.of(new Resource(1L, "peter@gmail.com", "peter", "React Dev", 1001L),
