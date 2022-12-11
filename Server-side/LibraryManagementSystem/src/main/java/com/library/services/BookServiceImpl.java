@@ -2,13 +2,14 @@ package com.library.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.library.entity.Book;
 import com.library.repository.BookRepository;
 
 @Service
+@Transactional
 public class BookServiceImpl implements IBookService {
 
 	@Autowired
