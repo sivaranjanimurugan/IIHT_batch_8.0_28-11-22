@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
@@ -31,6 +32,10 @@ public class BookContentDetails {
 	@CreationTimestamp
 	@Column(name = "CREATION_TIMESTAMP")
 	private LocalDateTime createdTime;
+	
+	@UpdateTimestamp
+	@Column(name = "UPDATION_TIMESTAMP")
+	private LocalDateTime updatedTime;
 	
 	@Column(name = "BOOK_ID")
 	private Long bookId;
