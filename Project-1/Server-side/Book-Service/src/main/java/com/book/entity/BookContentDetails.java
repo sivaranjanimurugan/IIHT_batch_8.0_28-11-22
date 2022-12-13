@@ -14,10 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import lombok.Data;
-
 @Entity
-@Data
 @Table(name = "DB_BOOK_CONTENT_DETAILS")
 public class BookContentDetails {
 	
@@ -44,4 +41,63 @@ public class BookContentDetails {
     //Adding the name
     @JoinColumn(name = "BOOK_ID")
 	private Book book;
+
+	public BookContentDetails() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public LocalDateTime getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(LocalDateTime createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public LocalDateTime getUpdatedTime() {
+		return updatedTime;
+	}
+
+	public void setUpdatedTime(LocalDateTime updatedTime) {
+		this.updatedTime = updatedTime;
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	@Override
+	public String toString() {
+		return "BookContentDetails [id=" + id + ", contentType=" + contentType + ", content=" + content
+				+ ", createdTime=" + createdTime + ", updatedTime=" + updatedTime + ", book=" + book + "]";
+	}
+    
 }
