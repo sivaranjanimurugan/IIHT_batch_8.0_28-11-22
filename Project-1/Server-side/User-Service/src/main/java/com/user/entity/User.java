@@ -26,8 +26,14 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME", unique = true)
 	private String username;
+	
+	@Column(name = "FIRSTNAME")
+	private String firstName;
+	
+	@Column(name = "LASTNAME")
+	private String lastName;
 
 	@Column(name = "PASSWORD")
 	private String password;

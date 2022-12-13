@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "DB_BOOK")
 public class Book {
@@ -63,6 +65,7 @@ public class Book {
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BookContentDetails> bookContentDetails;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BookSubscriptionDetails> bookSubDetails;
 

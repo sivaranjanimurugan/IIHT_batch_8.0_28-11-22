@@ -46,7 +46,7 @@ public class BookSubscriptionDetails {
 	// Mapping the column of this table
     @ManyToOne
     //Adding the name
-    @JoinColumn(name = "BOOK_ID")
+    @JoinColumn(name = "BOOK_ID", referencedColumnName = "id")
 	private Book book;
 
 	public BookSubscriptionDetails() {

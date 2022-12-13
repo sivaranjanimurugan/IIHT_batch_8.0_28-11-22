@@ -1,7 +1,6 @@
 package com.book.services;
 
 import java.util.List;
-
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +24,10 @@ public class BookServiceImpl implements IBookService {
 
 	@Override
 	public Book createBook(Book newBook) {
+//		Set<BookContentDetails> bookContent = newBook.getBookContentDetails();
+//		for(BookContentDetails book:bookContent) {
+//			
+//		}
 		return bookRepo.save(newBook);
 	}
 

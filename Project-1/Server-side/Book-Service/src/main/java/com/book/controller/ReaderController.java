@@ -32,7 +32,7 @@ public class ReaderController {
 		return new ResponseEntity<>(bookService.getAllSubscribedBooks(subName), HttpStatus.OK);
 	}
 	
-	@GetMapping("/getall/by-user")
+	@GetMapping("/get/by-user")
 	public ResponseEntity<?> getBookByUserAndSubId(@RequestParam String subName,
 			@RequestParam Long subId) {
 		return new ResponseEntity<>(bookService.getBookBySubscribedId(subName, subId), HttpStatus.OK);
