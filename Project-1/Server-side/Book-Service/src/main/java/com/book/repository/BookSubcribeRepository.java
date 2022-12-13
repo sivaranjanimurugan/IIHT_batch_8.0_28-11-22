@@ -13,10 +13,10 @@ import com.book.entity.BookSubscriptionDetails;
 @Repository
 public interface BookSubcribeRepository extends JpaRepository<BookSubscriptionDetails, Long>{
 	
-	@Query("select t.book from BookSubscriptionDetails t where t.subName = :username")
+	@Query("select t.book from BookSubscriptionDetails t where t.subName = :username and t.isSubscribed = true")
 	List<Book> findAllbooksBySubscription(@Param("username") String username);
 	
-	@Query("select t.book from BookSubscriptionDetails t where t.subName = :username and t.id = :subscribeId")
+	@Query("select t.book from BookSubscriptionDetails t where t.subName = :username and t.id = :subscribeId and t.isSubscribed = true")
 	Book findbookBySubscriptionIdandUsername(@Param("username") String username, @Param("subscribeId") Long subscribeId);
 
 }

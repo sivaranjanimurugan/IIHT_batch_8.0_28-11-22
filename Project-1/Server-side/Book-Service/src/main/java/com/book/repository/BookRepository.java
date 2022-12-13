@@ -18,10 +18,11 @@ public interface BookRepository extends JpaRepository<Book, Long>{
 	void updateActiveById(@Param("isActive") Boolean isActive, @Param("id") Long id);
 	
 	@Query("select t from Book t where "
-			+ "(t.title = null or t.title like (%:title%)) and"
-			+ "(t.category = null or t.category like (%:category%)) and"
-			+ "(t.author = null or t.author like (%:author%)) and"
-			+ "(t.price = null or t.price =:price)"
+			+ "(:title = null or t.title like (%:title%)) and "
+			+ "(:category = null or t.category like (%:category%)) and "
+			+ "(:author = null or t.author like (%:author%)) and "
+			+ "(:price = null or t.price =:price) and "
+			+ "t.isActive = true"
 			)
 	List<Book> searchBooks(
 			@Param("title") String title,

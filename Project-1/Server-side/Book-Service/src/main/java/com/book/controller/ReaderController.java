@@ -22,19 +22,30 @@ public class ReaderController {
 	private IBookService bookService;
 
 	@PutMapping("/update/is-subscribe/{book-id}")
-	public ResponseEntity<?> updateBorrowed(@PathVariable("book-id") Long bookId,
+	public ResponseEntity<?> subcribeBook(@PathVariable("book-id") Long bookId,
 			@RequestBody SubscribeDetails subDetails) {
 		return new ResponseEntity<>(bookService.subscribeBook(bookId, subDetails), HttpStatus.OK);
 	}
-	
+
+	@PutMapping("/update/cancel-subscription/{sub-id}")
+	public ResponseEntity<?> unsubcribeBook(@PathVariable("sub-id") Long subId,
+			@RequestBody SubscribeDetails subDetails) {
+		Integer result = bookService.unsubscribeBook(subId, subDetails);
+		if(result == 0) {
+			return new ResponseEntity<>("You can't unsubscribe this book due to time limit exceed for this action!", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Book unsubscribed successfully!", HttpStatus.OK);
+		}
+		
+	}
+
 	@GetMapping("/getall/by-user")
 	public ResponseEntity<?> getAllByUser(@RequestParam String subName) {
 		return new ResponseEntity<>(bookService.getAllSubscribedBooks(subName), HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/get/by-user")
-	public ResponseEntity<?> getBookByUserAndSubId(@RequestParam String subName,
-			@RequestParam Long subId) {
+	public ResponseEntity<?> getBookByUserAndSubId(@RequestParam String subName, @RequestParam Long subId) {
 		return new ResponseEntity<>(bookService.getBookBySubscribedId(subName, subId), HttpStatus.OK);
 	}
 

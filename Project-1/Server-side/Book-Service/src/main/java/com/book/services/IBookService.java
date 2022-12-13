@@ -13,7 +13,7 @@ public interface IBookService {
 
 	public Book updateBook(Long id, Book updateBook);
 
-	public void changeBookStatus(Long id, Boolean isBlock);
+	public void changeBookStatus(Long id, Boolean isActive);
 	
 	public Book getBookById(Long id);
 	
@@ -21,6 +21,8 @@ public interface IBookService {
 	
 	//reader
 	public Long subscribeBook(Long bookId, SubscribeDetails subDetails);
+	
+	public Integer unsubscribeBook(Long subId, SubscribeDetails subDetails);
 	
 	public List<Book> getAllSubscribedBooks(String subName);
 	

@@ -24,7 +24,5 @@ public class SubscribeDetails {
 	public void setIsSubscribed(Boolean isSubscribed) {
 		this.isSubscribed = isSubscribed;
 	}
-	
-	
 
 }

@@ -1,5 +1,6 @@
 package com.book.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class BookServiceImpl implements IBookService {
 
 	@Autowired
 	private BookRepository bookRepo;
-	
+
 	@Autowired
 	private BookSubcribeRepository subscribeRepo;
 
@@ -46,13 +47,14 @@ public class BookServiceImpl implements IBookService {
 		existingBook.setPublisher(updateBook.getPublisher());
 		existingBook.setPublishedDate(updateBook.getPublishedDate());
 		existingBook.setIsActive(updateBook.getIsActive());
+		existingBook.setBookContentDetails(updateBook.getBookContentDetails());
 		// return updated book object
 		return bookRepo.save(existingBook);
 	}
 
 	@Override
-	public void changeBookStatus(Long id, Boolean isBlock) {
-		bookRepo.updateActiveById(isBlock, id);
+	public void changeBookStatus(Long id, Boolean isActive) {
+		bookRepo.updateActiveById(isActive, id);
 	}
 
 	@Override
@@ -69,14 +71,30 @@ public class BookServiceImpl implements IBookService {
 	public Long subscribeBook(Long bookId, SubscribeDetails subDetails) {
 		Book existingBook = bookRepo.findById(bookId)
 				.orElseThrow(() -> new ResourceNotFoundExceptionHandler("Book", "id", bookId));
-		//subscribe
+		// subscribe
 		BookSubscriptionDetails subscribe = new BookSubscriptionDetails();
 		subscribe.setSubName(subDetails.getSubName());
 		subscribe.setSubRole(subDetails.getSubRole());
 		subscribe.setIsSubscribed(subDetails.getIsSubscribed());
-		subscribe.setBook(existingBook);	
-		//todo unsubscribe
+		subscribe.setBook(existingBook);
 		return subscribeRepo.save(subscribe).getId();
+	}
+
+	@Override
+	public Integer unsubscribeBook(Long subId, SubscribeDetails subDetails) {
+		BookSubscriptionDetails existingSub = subscribeRepo.findById(subId)
+				.orElseThrow(() -> new ResourceNotFoundExceptionHandler("Subscription", "id", subId));
+		LocalDateTime startTime = existingSub.getCreatedTime();
+		LocalDateTime endTime = existingSub.getCreatedTime().plusDays(1);
+		LocalDateTime now = LocalDateTime.now();
+		if (!now.isBefore(startTime) && !now.isAfter(endTime)) {
+			// un-subscribe
+			existingSub.setIsSubscribed(subDetails.getIsSubscribed());
+			subscribeRepo.save(existingSub);
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 	@Override

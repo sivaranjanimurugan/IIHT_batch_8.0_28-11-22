@@ -29,13 +29,13 @@ public class AuthorController {
 		return new ResponseEntity<>(bookService.updateBook(id, updateBook), HttpStatus.OK);
 	}
 
-	@PutMapping("/author/update/is-block/{book-id}")
-	public ResponseEntity<?> updateBorrowed(@PathVariable("book-id") Long id, @RequestBody Boolean isBlock) {
+	@PutMapping("/author/update/is-active/{book-id}")
+	public ResponseEntity<?> updateBorrowed(@PathVariable("book-id") Long id, @RequestBody Boolean isActive) {
 		Book book = bookService.getBookById(id);
 		if (book == null) {
 			return new ResponseEntity<>("No such book available !", HttpStatus.NOT_FOUND);
 		} else {
-			bookService.changeBookStatus(id, isBlock);
+			bookService.changeBookStatus(id, isActive);
 			return new ResponseEntity<>("Book status updated successfully !", HttpStatus.OK);
 		}
 	}
