@@ -19,17 +19,17 @@ public class AuthorController {
 	@Autowired
 	private IBookService bookService;
 	
-	@PostMapping("/author/add")
+	@PostMapping("/add")
 	public ResponseEntity<?> createBook(@RequestBody Book book) {
 		return new ResponseEntity<>(bookService.createBook(book), HttpStatus.OK);
 	}
 	
-	@PutMapping("/author/update/{book-id}")
+	@PutMapping("/update/{book-id}")
 	public ResponseEntity<?> updateBook(@PathVariable("book-id") Long id, @RequestBody Book updateBook) {
 		return new ResponseEntity<>(bookService.updateBook(id, updateBook), HttpStatus.OK);
 	}
 
-	@PutMapping("/author/update/is-active/{book-id}")
+	@PutMapping("/update/is-active/{book-id}")
 	public ResponseEntity<?> updateBorrowed(@PathVariable("book-id") Long id, @RequestBody Boolean isActive) {
 		Book book = bookService.getBookById(id);
 		if (book == null) {
