@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.user.entity.User;
-import com.user.models.JwtRequest;
-import com.user.models.JwtResponse;
 import com.user.repository.UserRepository;
 
 @Service
@@ -20,9 +18,8 @@ public class UserServiceImpl implements IUserService{
 	}
 
 	@Override
-	public JwtResponse signin(JwtRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	public User getUserByName(String username) {
+		return userRepo.findByUsername(username);
 	}
 
 }

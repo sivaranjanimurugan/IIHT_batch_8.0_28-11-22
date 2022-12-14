@@ -41,7 +41,7 @@ public class UserController {
 	}
 
 	@PostMapping("/sign-in")
-	public ResponseEntity<?> createBook(@RequestBody JwtRequest request) throws Exception {
+	public ResponseEntity<?> login(@RequestBody JwtRequest request) throws Exception {
 		try {
 			authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
