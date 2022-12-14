@@ -1,30 +1,38 @@
 package com.user.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
 import com.user.entity.User;
-import com.user.models.BookFilter;
 import com.user.models.JwtRequest;
+import com.user.models.JwtResponse;
 import com.user.services.IUserService;
+import com.user.services.UserDataService;
+import com.user.utility.JWTUtility;
 
 @RestController
 @RequestMapping("/api/v1/digitalbooks")
 public class UserController {
-
+	
 	@Autowired
 	private IUserService userService;
+	
+	@Autowired
+	private JWTUtility jwtUtil;
 
 	@Autowired
-	private RestTemplate restTemplate;
+	private AuthenticationManager authenticationManager;
+
+	@Autowired
+	private UserDataService userDataService;
 
 	// user sign-in and sign-up
 	@PostMapping("/sign-up")
@@ -33,14 +41,16 @@ public class UserController {
 	}
 
 	@PostMapping("/sign-in")
-	public ResponseEntity<?> createBook(@RequestBody JwtRequest request) {
-		return new ResponseEntity<>(userService.signin(request), HttpStatus.OK);
-	}
-
-	@PostMapping("/search/by-filter")
-	public ResponseEntity<?> searchBooks(@RequestBody BookFilter filter) {
-		List result = restTemplate.postForObject("http://BOOK-SERVICE/search", filter, List.class);
-		return new ResponseEntity<>(result, HttpStatus.OK);
+	public ResponseEntity<?> createBook(@RequestBody JwtRequest request) throws Exception {
+		try {
+			authenticationManager.authenticate(
+					new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+		} catch (BadCredentialsException ex) {
+			throw new Exception("INVALID CREDENTIALS", ex);
+		}
+		final UserDetails userDetails = userDataService.loadUserByUsername(request.getUsername());
+		final String token = jwtUtil.generateToken(userDetails);
+		return new ResponseEntity<>( new JwtResponse(token), HttpStatus.OK);
 	}
 
 }
