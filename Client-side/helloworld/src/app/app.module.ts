@@ -10,13 +10,17 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { AboutComponent } from './Components/about/about.component';
+import { ContactusComponent } from './Components/contactus/contactus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UserformComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
