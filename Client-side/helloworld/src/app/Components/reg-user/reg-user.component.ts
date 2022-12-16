@@ -33,4 +33,10 @@ export class RegUserComponent implements OnInit {
     )
   }
 
+  sortUsers(){
+    this.users.sort((user1, user2) => {
+        return user1.age - user2.age;
+    })
+  }
+
 }
