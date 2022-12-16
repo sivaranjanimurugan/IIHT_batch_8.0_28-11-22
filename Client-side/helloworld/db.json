@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "firstname": "jhonny",
-      "lastname": "depp",
-      "age": "27",
-      "gender": "male",
-      "email": "depp@gmail.com",
-      "id": 1
-    },
-    {
       "firstname": "sivaranjani",
       "lastname": "murugan",
       "age": "24",
@@ -23,6 +15,14 @@
       "gender": "female",
       "email": "ramy@gmail.com",
       "id": 3
+    },
+    {
+      "firstname": "nivetha",
+      "lastname": "",
+      "age": 24,
+      "gender": "female",
+      "email": "nivi@gmail.com",
+      "id": 4
     }
   ]
 }

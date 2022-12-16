@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import User from 'src/app/Entity/user';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-reg-user',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegUserComponent implements OnInit {
 
-  constructor() { }
+  users: User[] = [];
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    //initalize when component starts
+    const promise = this.userService.getUsers();
+    promise.subscribe(
+      (res) => {
+        console.log(res);
+        this.users = res as User[];
+      });
+  }
+
+  deleteUser(user: any, index: any){
+    const observable = this.userService.deleteUser(user);
+    observable.subscribe(
+      (res) => {
+        console.log(res);
+        this.users.splice(index, 1);
+      }
+    )
   }
 
 }

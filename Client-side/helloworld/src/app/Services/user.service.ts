@@ -19,4 +19,12 @@ export class UserService {
   }) {
        return this.http.post(BASE_URL+"/users", user);
   }
+
+  getUsers(){
+    return this.http.get(BASE_URL+"/users");
+  }
+
+  deleteUser(user: any){
+    return this.http.delete(BASE_URL+"/users/"+ user.id);
+  }
 }
