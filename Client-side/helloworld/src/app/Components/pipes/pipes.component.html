@@ -3,4 +3,4 @@
 <h1 style="color: blue;">Employee JoinOn: {{employee.joinOn | date:"yyyy-mm-dd"}}</h1>
 <h1>Employee Qualificattion: {{employee.qualification | uppercase}}</h1>
 <h1 style="color: blue;">Employee WinningPercentage: {{employee.winningPercentage | percent}}</h1>
-<h1>About: {{employee.about | lowercase}}</h1>
+<h1>About: {{employee.about | lowercase | ellipsis}}</h1>

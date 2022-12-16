@@ -15,6 +15,7 @@ import { ContactusComponent } from './Components/contactus/contactus.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegUserComponent } from './Components/reg-user/reg-user.component';
 import { PipesComponent } from './Components/pipes/pipes.component';
+import { EllipsisPipe } from './pipe/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PipesComponent } from './Components/pipes/pipes.component';
     AboutComponent,
     ContactusComponent,
     RegUserComponent,
-    PipesComponent
+    PipesComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
