@@ -1,6 +1,7 @@
-<h1 style="color: blue;">Employee Name: {{employee.name | uppercase}}</h1>
+<h1>Employee Name: {{employee.name | uppercase}}</h1>
 <h1>Employee Salary: {{employee.baseSalary | currency:"USD"}}</h1>
-<h1 style="color: blue;">Employee JoinOn: {{employee.joinOn | date:"yyyy-mm-dd"}}</h1>
+<h1>Employee JoinOn: {{employee.joinOn | date:"yyyy-mm-dd"}}</h1>
 <h1>Employee Qualificattion: {{employee.qualification | uppercase}}</h1>
-<h1 style="color: blue;">Employee WinningPercentage: {{employee.winningPercentage | percent}}</h1>
-<h1>About: {{employee.about | lowercase | ellipsis}}</h1>
+<h1>Employee WinningPercentage: {{employee.winningPercentage | percent}}</h1>
+<h1>About: {{employee.about | lowercase | ellipsis:param}}</h1>
+<button id="info" style="margin: 10px;" type="button" (click)="param = 'full'" class="btn btn-outline-info">Full-info</button>

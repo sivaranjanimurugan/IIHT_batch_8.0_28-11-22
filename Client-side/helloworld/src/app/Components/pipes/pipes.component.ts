@@ -16,6 +16,7 @@ export class PipesComponent implements OnInit {
     "winningPercentage": 50 / 100
   }
 
+  param: string=''
   constructor() { }
 
   ngOnInit(): void {
