@@ -14,6 +14,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { ContactusComponent } from './Components/contactus/contactus.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegUserComponent } from './Components/reg-user/reg-user.component';
+import { PipesComponent } from './Components/pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegUserComponent } from './Components/reg-user/reg-user.component';
     NavbarComponent,
     AboutComponent,
     ContactusComponent,
-    RegUserComponent
+    RegUserComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
