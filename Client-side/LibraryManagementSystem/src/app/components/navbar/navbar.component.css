@@ -1,0 +1,10 @@
+header a{
+    font-family: var(--OpenSan);
+    font-size: 1.8em;
+    color: whitesmoke;
+}
+
+header{
+    background: #dd2476;
+    background: var(--bggradient);
+}
