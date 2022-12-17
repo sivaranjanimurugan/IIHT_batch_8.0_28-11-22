@@ -1,0 +1,30 @@
+main a{
+    font-family: var(--Rubik);
+    font-size: 1.8em;
+    color: whitesmoke;
+}
+
+main .nav-item:last-child {
+    padding-right: 10.5em;
+}
+
+main .nav-item{
+    padding: 0.9em;
+}
+
+main .navbar-brand{
+    padding-left: 8rem;
+}
+
+main .nav-link:hover{
+color: black;
+}
+
+main .row .col-md-5 {
+    padding: 4.2vmin;
+}
+
+main .row .col-md-7 {
+    padding: 22vmin, 1 vmin;
+    padding-bottom: 35vmin;
+}

@@ -1,5 +1,5 @@
 header a{
-    font-family: var(--OpenSan);
+    font-family: var(--Rubik);
     font-size: 1.8em;
     color: whitesmoke;
 }
@@ -7,4 +7,29 @@ header a{
 header{
     background: #dd2476;
     background: var(--bggradient);
+}
+
+header .nav-item:last-child {
+    padding-right: 10.5em;
+}
+
+header .nav-item{
+    padding: 0.9em;
+}
+
+header .navbar-brand{
+    padding-left: 8rem;
+}
+
+header .nav-link:hover{
+color: black;
+}
+
+header .row .col-md-5 {
+    padding: 4.2vmin;
+}
+
+header .row .col-md-7 {
+    padding: 22vmin, 1 vmin;
+    padding-bottom: 35vmin;
 }
