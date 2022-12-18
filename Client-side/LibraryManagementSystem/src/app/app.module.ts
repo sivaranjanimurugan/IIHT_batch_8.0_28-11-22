@@ -7,13 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateBookComponent } from './components/create-book/create-book.component';
+import { AllBooksComponent } from './components/all-books/all-books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    CreateBookComponent,
+    AllBooksComponent
   ],
   imports: [
     BrowserModule,

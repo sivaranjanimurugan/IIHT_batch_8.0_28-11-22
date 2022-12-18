@@ -1,0 +1,32 @@
+<div class="container-fluid p-5 center">
+    <h2 class="fs-1 text-center">Add your Books</h2>
+    <div class="row">
+        <form class="fs-6">
+            <div class="mb-3">
+                <label for="bname">Book Name</label>
+                <input type="text" id="bname" name="bookname" placeholder="Enter your book name"
+                    pattern="[A-Za-z ]{3,32}" title="Name should contains alphabets only" required>
+            </div>
+            <div class="mb-3">
+                <label for="aname">Author Name</label>
+                <input type="text" id="aname" name="authorname" placeholder="Enter author name"
+                    pattern="[A-Za-z ]{3,32}" title="Name should contains alphabets only" required>
+            </div>
+            <div class="mb-3">
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" placeholder="Enter amount here" pattern="[0-9]{1,2}"
+                    title="Price should contains numbers only" required>
+            </div>
+            <div class="mb-3">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" placeholder="Enter author name" pattern="[A-Za-z ]{4,32}"
+                    title="Genre should contains alphabets only" required>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="borrowed">
+                <label class="form-check-label" for="borrowed">Borrowed</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
