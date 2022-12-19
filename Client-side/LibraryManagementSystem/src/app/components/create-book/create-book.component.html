@@ -15,8 +15,8 @@
                     title="Name should contains alphabets only" required>
             </div>
             <div class="mb-3">
-                <label for="prize">Price</label>
-                <input type="number" [(ngModel)]="book.price" id="prize" name="prize" placeholder="Enter amount here"
+                <label for="price">Price</label>
+                <input type="number" [(ngModel)]="book.price" id="price" name="price" placeholder="Enter amount here"
                     pattern="[0-9]{1,2}" title="Price should contains numbers only" required>
             </div>
             <div class="mb-3">
@@ -25,7 +25,7 @@
                     pattern="[A-Za-z ]{4,32}" title="Genre should contains alphabets only" required>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" [(ngModel)]="book.borrowed" class="form-check-input" id="bwd">
+                <input type="checkbox" [(ngModel)]="book.borrowed" class="form-check-input" id="bwd" name="bwd">
                 <label class="form-check-label" for="bwd">Borrowed</label>
             </div>
             <button type="submit" (click)="createBook()" class="btn btn-primary">Submit</button>
