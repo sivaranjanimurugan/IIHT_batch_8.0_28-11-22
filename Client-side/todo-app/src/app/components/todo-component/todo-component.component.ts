@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-todo-component',
@@ -10,7 +11,12 @@ export class TodoComponentComponent implements OnInit {
 
   todos: Todo[];
 
-  constructor() { }
+  constructor(private store: Store<{ todos: Todo[] }>) {
+    store.pipe(select('todos')).subscribe((value) => {
+      this.todos = value;
+      console.log(value);
+    });
+  }
 
   ngOnInit(): void {
   }

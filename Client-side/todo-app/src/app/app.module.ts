@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store/src';
+import { StoreModule } from '@ngrx/store';
 import { TodoReducer } from './reducers/todo.reducer';
 import { TodoComponentComponent } from './components/todo-component/todo-component.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponentComponent
+    TodoComponentComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,
