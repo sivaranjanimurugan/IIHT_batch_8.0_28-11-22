@@ -18,6 +18,7 @@ export class AddTodoComponent implements OnInit {
   addTodo(todo: string) {
     const newTodo = new Todo();
     newTodo.title = todo;
+    console.log(todo);
     this.store.dispatch(new TodoAdd(newTodo));
   }
 }

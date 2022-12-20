@@ -1,4 +1,5 @@
 import { Action } from "@ngrx/store";
+import { TodoActionType } from "../shared/todo-action-types.enum";
 
 export class ActionParent implements Action {
     type: any;
@@ -6,8 +7,7 @@ export class ActionParent implements Action {
 }
 
 export class TodoAdd implements ActionParent {
-    type: any;
+    type = TodoActionType.Add;
     constructor(public payload: any) {
-
     };
 }
