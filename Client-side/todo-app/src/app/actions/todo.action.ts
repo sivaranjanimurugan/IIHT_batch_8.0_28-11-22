@@ -11,3 +11,9 @@ export class TodoAdd implements ActionParent {
     constructor(public payload: any) {
     };
 }
+
+export class TodoRemove implements ActionParent {
+    type = TodoActionType.Remove;
+    constructor(public payload: any) {
+    };
+}

@@ -1,5 +1,9 @@
 <div class="container-fluid bg-dark text-center" style="color: white;">
     <ol class="list-group list-group-numbered p-5">
-        <li class="list-group-item" *ngFor="let todo of todos, index as i">{{todo.title}}</li>
+        <li class="list-group-item text-start" *ngFor="let todo of todos, index as i">{{todo.title}}
+            <div class="text-end">
+                <button (click)="deleteTodo(i)" type="button" class="btn btn-outline-danger">Delete</button>
+            </div>
+        </li>
     </ol>
 </div>
