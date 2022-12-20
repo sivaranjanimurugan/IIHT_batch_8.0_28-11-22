@@ -1,7 +1,7 @@
 export default class Book {
-    bookName: String = '';
-    authorName: String = '';
+    bookName: string = '';
+    authorName: string = '';
     price: number = 0.00;
-    genre: String = '';
+    genre: string = '';
     borrowed: boolean = false;
 }

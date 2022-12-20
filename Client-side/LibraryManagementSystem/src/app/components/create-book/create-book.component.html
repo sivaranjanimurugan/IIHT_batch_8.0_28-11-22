@@ -1,7 +1,7 @@
 <div class="container-fluid p-5 center">
     <h2 class="fs-1 text-center">Add your Books</h2>
     <div class="row">
-        <form class="fs-6">
+        <form class="fs-6" ngNativeValidate>
             <div class="mb-3">
                 <label for="bname">Book Name</label>
                 <input type="text" [(ngModel)]="book.bookName" id="bname" name="bname"
@@ -10,9 +10,8 @@
             </div>
             <div class="mb-3">
                 <label for="aname">Author Name</label>
-                <input type="text" [(ngModel)]="book.authorName" id="aname" name="aname"
-                    placeholder="Enter author name" pattern="[A-Za-z ]{3,32}"
-                    title="Name should contains alphabets only" required>
+                <input type="text" [(ngModel)]="book.authorName" id="aname" name="aname" placeholder="Enter author name"
+                    pattern="[A-Za-z ]{3,32}" title="Name should contains alphabets only" required>
             </div>
             <div class="mb-3">
                 <label for="price">Price</label>
@@ -28,7 +27,7 @@
                 <input type="checkbox" [(ngModel)]="book.borrowed" class="form-check-input" id="bwd" name="bwd">
                 <label class="form-check-label" for="bwd">Borrowed</label>
             </div>
-            <button type="submit" (click)="createBook()" class="btn btn-primary">Submit</button>
+            <button type="submit" (click)="checkValid() ? createBook() : null" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>

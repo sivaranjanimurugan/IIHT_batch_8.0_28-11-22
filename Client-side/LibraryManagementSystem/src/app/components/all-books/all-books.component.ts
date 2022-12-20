@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Book from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
 
@@ -11,7 +12,8 @@ export class AllBooksComponent implements OnInit {
 
   books: Book[] = [];
 
-  constructor(private bookService: BookService) { }
+  constructor( private router: Router,
+    private bookService: BookService) { }
 
   ngOnInit(): void {
     //initalize when component starts
@@ -31,6 +33,8 @@ export class AllBooksComponent implements OnInit {
         this.books.splice(index, 1);
       }
     )
+    window.location.reload();
+    alert("Book deleted successfully !!");
   }
 
 }

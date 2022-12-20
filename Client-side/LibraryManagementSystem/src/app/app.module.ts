@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateBookComponent } from './components/create-book/create-book.component';
 import { AllBooksComponent } from './components/all-books/all-books.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FooterComponent,
     CreateBookComponent,
-    AllBooksComponent
+    AllBooksComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
