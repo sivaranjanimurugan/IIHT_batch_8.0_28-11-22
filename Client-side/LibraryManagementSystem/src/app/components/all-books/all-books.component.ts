@@ -12,17 +12,12 @@ export class AllBooksComponent implements OnInit {
 
   books: Book[] = [];
 
-  constructor( private router: Router,
+  constructor(private router: Router,
     private bookService: BookService) { }
 
   ngOnInit(): void {
     //initalize when component starts
-    const promise = this.bookService.getAllBooks();
-    promise.subscribe(
-      (res) => {
-        console.log(res);
-        this.books = res as Book[];
-      });
+    this.getAllBooks();
   }
 
   deleteBook(book: any, index: any) {
@@ -33,8 +28,25 @@ export class AllBooksComponent implements OnInit {
         this.books.splice(index, 1);
       }
     )
-    window.location.reload();
+    // window.location.reload();
     alert("Book deleted successfully !!");
+  }
+
+  //get all books
+  getAllBooks() {
+    const promise = this.bookService.getAllBooks();
+    promise.subscribe(
+      (res) => {
+        console.log(res);
+        this.books = res as Book[];
+      });
+  }
+
+  //sort book by price
+  sortBooks() {
+    this.books.sort((book1, book2) => {
+      return book1.price - book2.price;
+    })
   }
 
 }

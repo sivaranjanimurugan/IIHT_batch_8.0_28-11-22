@@ -1,4 +1,11 @@
 <div class="container" class="p-5">
+    <div class="text-center p-0">
+        <h2 class="fs-4 text-decoration-underline">All Available Books</h2>
+    </div>
+    <div class="text-end p-2">
+        <button type="button" (click)="sortBooks()" class="btn btn-outline-warning mx-2">SortByPrice</button>
+        <button type="button" (click)="getAllBooks()" class="btn btn-outline-info">Refresh</button>
+    </div>
     <table class="table table-striped align-middle">
         <thead>
             <tr class="fs-5">
