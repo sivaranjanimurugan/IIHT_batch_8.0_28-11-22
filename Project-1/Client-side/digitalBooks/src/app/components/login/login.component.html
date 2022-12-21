@@ -11,19 +11,20 @@
               <!-- Sign In Form -->
               <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
-                    formControlName="email" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="inputEmail4">
-                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  <input [(ngModel)]="request.username" type="text" class="form-control" id="floatingInput"
+                    placeholder="name@example.com" formControlName="username" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username"
+                    pattern="[A-Za-z ]{3,32}">
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                    <div *ngIf="f.username.errors.pattern">Username must be a valid username</div>
                   </div>
                   <label for="floatingInput" class="fs-6">Username</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                    formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-                    id="inputPassword4">
+                  <input [(ngModel)]="request.password" type="password" class="form-control" id="floatingPassword"
+                    placeholder="Password" formControlName="password"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="inputPassword4">
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                   </div>

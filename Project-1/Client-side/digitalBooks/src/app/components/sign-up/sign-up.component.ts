@@ -47,11 +47,10 @@ export class SignUpComponent implements OnInit {
 
   //create new user
   createUser() {
-    console.log(this.user);
     const observables = this.userService.createUser(this.user);
     observables.subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
       }, function (error) {
         console.log(error);
         alert("Something went wrong !, Please try again");

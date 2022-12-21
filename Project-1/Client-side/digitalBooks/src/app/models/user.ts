@@ -7,3 +7,8 @@ export default class User {
     email: string = '';
     // createdTime: Date = 
 }
+
+export class JwtRequest {
+    username: string = '';
+    password: string = '';
+}
