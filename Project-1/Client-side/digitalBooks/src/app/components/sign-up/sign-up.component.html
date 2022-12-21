@@ -1,53 +1,54 @@
-<section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="../../../assets/e-green-book.png"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
-            <label class="form-label" for="form3Example3">Email address</label>
-          </div>
-
-          <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
-            <label class="form-label" for="form3Example4">Password</label>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
+<div class="container-fluid ps-md-0">
+    <div class="row g-0">
+      <!-- <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div> -->
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4 fs-3">Welcome back!</h3>
+  
+                <!-- Sign In Form -->
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com"
+                      formControlName="email" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" id="inputEmail4">
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                    <label for="floatingInput" class="fs-6">Username</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                      formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                      id="inputPassword4">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                    <label for="floatingPassword" class="fs-6">Password</label>
+                  </div>
+  
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                    <label class="form-check-label" for="rememberPasswordCheck" class="fs-6">
+                      Remember password
+                    </label>
+                  </div>
+  
+                  <div class="d-grid">
+                    <button class="btn btn-outline-success btn-login text-uppercase fs-6 mb-2" type="submit">Sign
+                      in</button>
+                    <div class="text-center">
+                      <a class="small fs-6" href="#">Forgot password?</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-            <a href="#!" class="text-body">Forgot password?</a>
           </div>
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                class="link-danger">Register</a></p>
-          </div>
-
-        </form>
+        </div>
       </div>
     </div>
   </div>
-  <div
-    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-    <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
-    </div>
-  </div>
-</section>
