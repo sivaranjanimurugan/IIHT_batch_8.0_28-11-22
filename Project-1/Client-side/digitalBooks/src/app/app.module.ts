@@ -32,7 +32,7 @@ import { SearchComponent } from './components/search/search.component';
     NoopAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

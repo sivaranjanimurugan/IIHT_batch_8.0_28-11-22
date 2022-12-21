@@ -38,15 +38,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     //Add User form validations
-    // this.RegisterForm = this.formBuilder.group({
-    //   username: ['', [Validators.required, Validators.pattern]],
-    //   firstname: ['', [Validators.required, Validators.pattern]],
-    //   lastname: ['', [Validators.required, Validators.pattern]],
-    //   role: ['', [Validators.required, Validators.pattern]]
-    // });
+    this.SearchForm = this.formBuilder.group({
+      title: [[]],
+      category: [[]],
+      price: [[]],
+      author: [[]]
+    });
   }
 
-  //get all books
+  //get all books based on filter
   searchBooks() {
     const promise = this.bookService.searchBooks(this.filter);
     promise.subscribe(

@@ -1,7 +1,7 @@
 <div class="container-fluid ps-md-0">
     <div class="row g-0">
         <!-- <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div> -->
-        <div class="col-md-8 col-lg-6">
+        <div class="col-md-6 col-lg-5">
             <div class="login d-flex align-items-center py-5">
                 <div class="container">
                     <div class="row">
@@ -10,54 +10,49 @@
                             <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()">
 
                                 <div class="form-floating mb-3">
-                                    <input [(ngModel)]="filter.title" type="text" class="form-control"
-                                        id="floatingInput" placeholder="Enter title" formControlName="title"
-                                        class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && f.title.errors }" id="title"
+                                    <input [(ngModel)]="filter.title" type="text" class="form-control" id="title"
+                                        placeholder="Enter title" formControlName="title" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
                                         pattern="[A-Za-z ]{3,32}">
-                                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                    <!-- <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                                         <div *ngIf="f.title.errors.required">Title is required</div>
                                         <div *ngIf="f.title.errors.pattern">Title must be a valid title</div>
-                                    </div>
-                                    <label for="floatingInput" class="fs-6">Title</label>
+                                    </div> -->
+                                    <label for="title" class="fs-6">Title</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input [(ngModel)]="filter.category" type="text" class="form-control"
-                                        id="category" placeholder="Enter category" formControlName="category"
-                                        class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && f.category.errors }" id="category"
+                                    <input [(ngModel)]="filter.category" type="text" class="form-control" id="category"
+                                        placeholder="Enter category" formControlName="category" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.category.errors }"
                                         pattern="[A-Za-z ]{3,32}">
-                                    <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                                    <!-- <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
                                         <div *ngIf="f.category.errors.required">category is required</div>
                                         <div *ngIf="f.category.errors.pattern">category must be a valid category
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <label for="category" class="fs-6">Category</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input [(ngModel)]="filter.price" type="text" class="form-control"
-                                        id="price" placeholder="Enter lastname" formControlName="price"
-                                        class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" id="price"
-                                        pattern="[A-Za-z ]{3,32}">
-                                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                                    <input [(ngModel)]="filter.price" type="number" class="form-control" id="price"
+                                        placeholder="Enter price" formControlName="price" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" pattern="[0-9]{1,3}">
+                                    <!-- <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
                                         <div *ngIf="f.price.errors.required">price is required</div>
                                         <div *ngIf="f.price.errors.pattern">price must be a valid price</div>
-                                    </div>
+                                    </div> -->
                                     <label for="price" class="fs-6">Price</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    <input [(ngModel)]="filter.author" type="text" class="form-control"
-                                        id="author" placeholder="Enter author" formControlName="author"
-                                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.author.errors }"
-                                        id="role">
-                                    <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
+                                    <input [(ngModel)]="filter.author" type="text" class="form-control" id="author"
+                                        placeholder="Enter author" formControlName="author" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.author.errors }">
+                                    <!-- <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
                                         <div *ngIf="f.author.errors.required">author is required</div>
                                         <div *ngIf="f.author.errors.role">author must be a valid author</div>
-                                    </div>
+                                    </div> -->
                                     <label for="author" class="fs-6">Author</label>
                                 </div>
                                 <div class="d-grid">
@@ -69,6 +64,26 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6 col-lg-7" style="background-color: blue;">
+            <!-- <div class="d-flex align-items-center py-5 px-5"> -->
+            <!-- <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="" class="img-fluid rounded-start" alt="book">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a
+                                    natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
         </div>
     </div>
 </div>
