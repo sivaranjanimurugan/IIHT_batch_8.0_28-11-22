@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.book.models.SubscribeDetails;
 import com.book.services.IBookService;
 
 @RestController
-@RequestMapping("/reader")
 public class ReaderController {
 
 	@Autowired
@@ -39,13 +36,13 @@ public class ReaderController {
 		
 	}
 
-	@GetMapping("/getall/by-user")
-	public ResponseEntity<?> getAllByUser(@RequestParam String subName) {
+	@GetMapping("/getall/by-user/{subName}")
+	public ResponseEntity<?> getAllByUser(@PathVariable String subName) {
 		return new ResponseEntity<>(bookService.getAllSubscribedBooks(subName), HttpStatus.OK);
 	}
 
-	@GetMapping("/get/by-user")
-	public ResponseEntity<?> getBookByUserAndSubId(@RequestParam String subName, @RequestParam Long subId) {
+	@GetMapping("/get/{subId}/by-user/{subName}")
+	public ResponseEntity<?> getBookByUserAndSubId(@PathVariable String subName, @PathVariable Long subId) {
 		return new ResponseEntity<>(bookService.getBookBySubscribedId(subName, subId), HttpStatus.OK);
 	}
 
