@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
+import { BookItemComponent } from './components/book-item/book-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SearchComponent } from './components/search/search.component';
     SignUpComponent,
     HeaderComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    BookItemComponent
   ],
   imports: [
     BrowserModule,
