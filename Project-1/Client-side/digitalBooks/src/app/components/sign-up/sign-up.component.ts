@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import User from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,8 +13,10 @@ export class SignUpComponent implements OnInit {
   RegisterForm: any = FormGroup;
   submitted = false;
   user: User = new User();
-  
-  constructor(private formBuilder: FormBuilder) { }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService) { }
   //Add user form actions
   get f() { return this.RegisterForm.controls; }
   onSubmit() {
@@ -25,10 +28,11 @@ export class SignUpComponent implements OnInit {
     }
     //True if all the fields are filled
     if (this.submitted) {
-      alert("Great!!");
+      this.createUser();
     }
 
   }
+
   ngOnInit() {
     //Add User form validations
     this.RegisterForm = this.formBuilder.group({
@@ -39,5 +43,18 @@ export class SignUpComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
+  }
+
+  //create new user
+  createUser() {
+    const observables = this.userService.createUser(this.user);
+    observables.subscribe(
+      (res: any) => {
+        console.log(res);
+      }, function (error) {
+        console.log(error);
+        alert("Something went wrong !, Please try again");
+      }
+    )
   }
 }
