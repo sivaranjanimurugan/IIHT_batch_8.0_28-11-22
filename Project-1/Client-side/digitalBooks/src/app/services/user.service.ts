@@ -3,10 +3,14 @@ import { Injectable } from '@angular/core';
 
 const BASE_URL = "http://localhost:8085/api/v1/digitalbooks";
 
-const headers = new HttpHeaders({
-  // 'Content-Type': 'application/json',
-  'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaXZhIiwiZXhwIjoxNjcxNjE3MjE2LCJpYXQiOjE2NzE1OTkyMTZ9.ORBOHuA9RkS1bqCsC73Pj6xqqh0h09cKSOqH1O2l7sXtnP0XM5Apxix3ei4P1yFiIvTjSdv1LU6cDwT16bYOsQ'
+const reqHeaders = new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaXZhIiwiZXhwIjoxNjcxNjM1Mjk0LCJpYXQiOjE2NzE2MTcyOTR9.aGZlZC7MxPr8nZ5_Ove_SwnEfC5rxv842ASw_VsdQLu_bm4E7A-vXROFiwBeF3epbeipu9nyLTqtOBh-_oFVuQ'
 })
+
+const httpOptions = {
+  headers: reqHeaders
+};
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +28,6 @@ export class UserService {
     email: string;
     password: string;
   }) {
-    return this.http.post(BASE_URL + "/sign-up", user, { headers: headers });
+    return this.http.post(BASE_URL + "/sign-up", user, httpOptions);
   }
 }

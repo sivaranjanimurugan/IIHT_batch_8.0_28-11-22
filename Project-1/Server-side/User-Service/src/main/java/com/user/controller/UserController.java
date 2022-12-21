@@ -21,7 +21,7 @@ import com.user.utility.JWTUtility;
 
 @RestController
 @RequestMapping("/api/v1/digitalbooks")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
 	
 	@Autowired
