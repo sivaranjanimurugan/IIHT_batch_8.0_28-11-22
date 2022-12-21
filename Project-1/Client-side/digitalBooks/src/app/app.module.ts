@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     SignUpComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

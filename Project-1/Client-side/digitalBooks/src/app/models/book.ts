@@ -5,3 +5,10 @@ export default class Book {
     genre: string = '';
     borrowed: boolean = false;
 }
+
+export class BookFilter {
+    title: string = '';
+    category: string = '';
+    author: string = '';
+    price: number = 0;
+}
