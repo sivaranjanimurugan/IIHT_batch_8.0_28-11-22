@@ -7,8 +7,8 @@ export default class Book {
     author: string = '';
     isActive: boolean = false;
     publisher: string = '';
-    publishedDate: any;
-    bookContentDetails: BookContent = new BookContent();
+    publishedDate: string = ''
+    bookContentDetails: BookContent[] = [];
 }
 
 export class BookContent {

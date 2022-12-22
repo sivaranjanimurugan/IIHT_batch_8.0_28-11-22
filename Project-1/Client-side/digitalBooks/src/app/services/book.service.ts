@@ -29,6 +29,8 @@ export class BookService {
     price: number;
     author: string;
   }) {
+    console.log(localStorage.getItem('token'));
+
     return this.http.post(BASE_URL + "/search/by-filter", filter);
   }
 
@@ -43,7 +45,7 @@ export class BookService {
     isActive: boolean;
     publisher: string;
     publishedDate: any;
-    bookContentDetails: BookContent;
+    bookContentDetails: BookContent[];
   }) {
     return this.http.post(BASE_URL + "/author/book", book, httpOptions);
   }

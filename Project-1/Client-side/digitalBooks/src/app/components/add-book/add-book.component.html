@@ -94,7 +94,7 @@
                     <label for="publishedDate">Published Date</label>
                     <br />
                     <input type="date" [(ngModel)]="book.publishedDate" id="publishedDate" class="form-control"
-                        name="publishedDate" placeholder="Enter publishedDate" formControlName="author"
+                        name="publishedDate" placeholder="Enter publishedDate" formControlName="publishedDate"
                         title="publishedDate should contains alphabets only">
                     <!-- <div *ngIf="submitted && f.publishedDate.errors" class="invalid-feedback">
                         <div *ngIf="f.publishedDate.errors.required">publishedDate is required</div>
@@ -113,10 +113,9 @@
                 <div class="column">
                     <label for="contentType">Content Type</label>
                     <br />
-                    <input type="text" [(ngModel)]="book.bookContentDetails.contentType" id="contentType"
-                        class="form-control" name="contentType" placeholder="Enter contentType"
-                        formControlName="contentType" [ngClass]="{ 'is-invalid': submitted && f.contentType.errors }"
-                        pattern="[A-Za-z ]{3,32}">
+                    <input type="text" [(ngModel)]="bookContent.contentType" id="contentType" class="form-control"
+                        name="contentType" placeholder="Enter contentType" formControlName="contentType"
+                        [ngClass]="{ 'is-invalid': submitted && f.contentType.errors }" pattern="[A-Za-z ]{3,32}">
                     <div *ngIf="submitted && f.contentType.errors" class="invalid-feedback">
                         <div *ngIf="f.contentType.errors.required">contentType is required</div>
                         <div *ngIf="f.contentType.errors.pattern">contentType must be a valid contentType</div>
@@ -125,7 +124,7 @@
                 <div class="c-column">
                     <label for="content">Content</label>
                     <br />
-                    <input type="text" [(ngModel)]="book.bookContentDetails.content" id="content" class="form-control"
+                    <input type="text" [(ngModel)]="bookContent.content" id="content" class="form-control"
                         name="content" placeholder="Enter your content link here" formControlName="content"
                         [ngClass]="{ 'is-invalid': submitted && f.content.errors }" pattern="[A-Za-z0-9 ]{3,100}">
                     <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
