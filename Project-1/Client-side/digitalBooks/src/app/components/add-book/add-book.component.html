@@ -1,15 +1,20 @@
 <div class="container center">
-    <h2 class="text-center fs-3 p-2">Add Book</h2>
+    <h2 class="text-center fs-3 pt-2">Add Book</h2>
     <!-- <form id="form1" action="./thankyou.html"> -->
     <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
         <div>
             <h4 class="fs-5">Book Details</h4>
             <div class="row">
                 <div class="column">
-                    <label for="fname">Title</label>
+                    <label for="title">Title</label>
                     <br />
-                    <input type="text" id="fname" name="fullname" placeholder="Enter your name"
-                        pattern="[A-Za-z ]{3,32}" title="Name should contains alphabets only" required>
+                    <input type="text" id="title" class="form-control" name="title" placeholder="Enter your title"
+                        formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+                        pattern="[A-Za-z ]{3,32}" title="Title should contains alphabets only">
+                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">Title is required</div>
+                        <div *ngIf="f.title.errors.pattern">Title must be a valid title</div>
+                    </div>
                 </div>
                 <div class="column">
                     <label for="dob">Date of birth</label>

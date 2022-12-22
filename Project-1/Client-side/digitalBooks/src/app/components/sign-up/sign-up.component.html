@@ -12,15 +12,14 @@
               <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
 
                 <div class="form-floating mb-3">
-                  <input [(ngModel)]="user.username" type="text" class="form-control" id="floatingInput"
-                    placeholder="Enter username" formControlName="username" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username"
-                    pattern="[A-Za-z ]{3,32}">
+                  <input [(ngModel)]="user.username" type="text" class="form-control" placeholder="Enter username"
+                    formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                    id="username" pattern="[A-Za-z ]{3,32}">
                   <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                     <div *ngIf="f.username.errors.pattern">Username must be a valid username</div>
                   </div>
-                  <label for="floatingInput" class="fs-6">Username</label>
+                  <label for="username" class="fs-6">Username</label>
                 </div>
 
                 <div class="form-floating mb-3">

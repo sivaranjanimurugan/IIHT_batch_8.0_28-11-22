@@ -17,8 +17,10 @@ export class SignUpComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService) { }
+
   //Add user form actions
   get f() { return this.RegisterForm.controls; }
+  
   onSubmit() {
 
     this.submitted = true;
