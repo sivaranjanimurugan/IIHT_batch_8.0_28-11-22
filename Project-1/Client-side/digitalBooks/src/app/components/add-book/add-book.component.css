@@ -28,6 +28,11 @@
     clear: both;
 }
 
+.form-control {
+    height: 35px;
+    font: 1em sans-serif;
+}
+
 input[type=text],
 select {
     width: 100%;
