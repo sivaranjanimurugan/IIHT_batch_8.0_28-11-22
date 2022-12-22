@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BookItemComponent } from './components/book-item/book-item.component';
     HeaderComponent,
     FooterComponent,
     SearchComponent,
-    BookItemComponent
+    BookItemComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,

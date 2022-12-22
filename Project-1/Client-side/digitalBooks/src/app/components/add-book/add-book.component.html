@@ -1,0 +1,96 @@
+<div class="container center">
+    <h2 class="text-center fs-3 p-2">Add Book</h2>
+    <!-- <form id="form1" action="./thankyou.html"> -->
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div>
+            <h4 class="fs-5">Book Details</h4>
+            <div class="row">
+                <div class="column">
+                    <label for="fname">Title</label>
+                    <br />
+                    <input type="text" id="fname" name="fullname" placeholder="Enter your name"
+                        pattern="[A-Za-z ]{3,32}" title="Name should contains alphabets only" required>
+                </div>
+                <div class="column">
+                    <label for="dob">Date of birth</label>
+                    <br />
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="column">
+                    <label for="email">Email</label>
+                    <br />
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="mobnumber">Mobile Number</label>
+                    <br />
+                    <input type="text" id="mobnumber" name="mobnumber" placeholder="Enter mobile number"
+                        pattern="^[789]\d{9,9}$" title="Format: start with 7-9 and remaing 9 digit with 0-9" required>
+                </div>
+                <div class="column">
+                    <label for="gender">Gender</label>
+                    <br />
+                    <select name="gender" id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <!-- <input type="text" id="gender" name="gender" placeholder="Enter your gender"> -->
+                </div>
+                <div class="column">
+                    <label for="occupation">Occupation</label>
+                    <br />
+                    <input type="text" id="occupation" name="occupation" placeholder="Enter occupation"
+                        pattern="[A-Za-z ]{3,45}" title="Occupation should contains alphabets only">
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 style="padding-left: 10px;">Identity Details</h4>
+            <div class="row">
+                <div class="column">
+                    <label for="idtype">ID Type</label>
+                    <br />
+                    <input type="text" id="idtype" name="idtype" placeholder="Enter ID type" pattern="[A-Za-z ]{3,32}"
+                        title="ID type should contains alphabets only" required>
+                </div>
+                <div class="column">
+                    <label for="idnumber">ID Number</label>
+                    <br />
+                    <input type="text" id="idnumber" name="idnumber" placeholder="Enter ID number" pattern="[0-9]{4,25}"
+                        title="ID number should contains numbers only" required>
+                </div>
+                <div class="column">
+                    <label for="issuedept">Issue Authority</label>
+                    <br />
+                    <input type="text" id="issuedept" name="issuedept" placeholder="Enter issue department"
+                        pattern="[A-Za-z ]{3,55}" title="Issue authority should contains alphabets only" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="issuedate">Issue Date</label>
+                    <br />
+                    <input type="date" id="issuedate" name="issuedate" required>
+                </div>
+                <div class="column">
+                    <label for="issuestate">Issue State</label>
+                    <br />
+                    <input type="text" id="issuestate" name="issuestate" placeholder="Enter ID issue state"
+                        pattern="[A-Za-z ]{3,32}" title="Issue state should contains alphabets only" required>
+                </div>
+                <div class="column">
+                    <label for="expdate">Expiry Date</label>
+                    <br />
+                    <input type="date" id="expdate" name="expdate" required>
+                </div>
+            </div>
+        </div>
+        <div style="padding-left: 10px;">
+            <button type="submit">Next</button>
+            <!-- <a href="#" class="next">Next &raquo;</a> -->
+        </div>
+    </form>
+</div>
