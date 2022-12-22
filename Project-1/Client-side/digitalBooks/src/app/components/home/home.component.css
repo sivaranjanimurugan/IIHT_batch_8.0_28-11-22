@@ -1,6 +1,5 @@
-.image {
-    background-repeat: no-repeat;
-    background-attachment: fixed;  
-    background-size: cover;
-    width: 100%;
-  }
+.bg-image {
+  background-image: url('../../../assets/home-book-image.jpg');
+  background-size: cover;
+  background-position: center;
+}

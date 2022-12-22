@@ -8,12 +8,8 @@
                 <div class="column">
                     <label for="logo">Logo</label>
                     <br />
-                    <input type="text" [(ngModel)]="book.logo" id="logo" class="form-control" name="logo"
-                        placeholder="Enter your category" formControlName="category"
-                        [ngClass]="{ 'is-invalid': submitted && f.logo.errors }">
-                    <div *ngIf="submitted && f.logo.errors" class="invalid-feedback">
-                        <div *ngIf="f.logo.errors.required">logo is required</div>
-                    </div>
+                    <input type="text" id="logo" class="form-control" name="logo" placeholder="Enter your category"
+                        formControlName="category">
                 </div>
                 <div class="column">
                     <label for="title">Title</label>
@@ -56,10 +52,10 @@
                 <div class="column">
                     <label for="price">Price</label>
                     <br />
-                    <input type="text" [(ngModel)]="book.price" id="price" class="form-control" name="price"
+                    <input type="number" [(ngModel)]="book.price" id="price" class="form-control" name="price"
                         placeholder="Enter your price" formControlName="price"
-                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" pattern="[A-Za-z ]{3,32}"
-                        title="price should contains alphabets only">
+                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" pattern="[0-9]{1,4}"
+                        title="price should contains numbers only">
                     <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
                         <div *ngIf="f.price.errors.required">price is required</div>
                         <div *ngIf="f.price.errors.pattern">price must be a valid price</div>
@@ -99,22 +95,17 @@
                     <br />
                     <input type="date" [(ngModel)]="book.publishedDate" id="publishedDate" class="form-control"
                         name="publishedDate" placeholder="Enter publishedDate" formControlName="author"
-                        [ngClass]="{ 'is-invalid': submitted && f.author.errors }" pattern="[A-Za-z ]{3,32}"
                         title="publishedDate should contains alphabets only">
-                    <div *ngIf="submitted && f.publishedDate.errors" class="invalid-feedback">
+                    <!-- <div *ngIf="submitted && f.publishedDate.errors" class="invalid-feedback">
                         <div *ngIf="f.publishedDate.errors.required">publishedDate is required</div>
-                        <div *ngIf="f.publishedDate.errors.pattern">publishedDate must be a valid publishedDate</div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="column">
                     <label for="isActive">Book Status</label>
-                    <br />
-                    <input type="text" [(ngModel)]="book.isActive" id="isActive" class="form-control" name="isActive"
-                        placeholder="Enter book status" formControlName="isActive"
-                        [ngClass]="{ 'is-invalid': submitted && f.isActive.errors }" pattern="[A-Za-z ]{3,32}">
-                    <div *ngIf="submitted && f.isActive.errors" class="invalid-feedback">
-                        <div *ngIf="f.isActive.errors.required">isActive is required</div>
-                    </div>
+                    <select formControlName="isActive" [(ngModel)]="book.isActive" class="form-control form-select">
+                        <option [ngValue]="true">Active</option>
+                        <option [ngValue]="false">Block</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
@@ -135,8 +126,8 @@
                     <label for="content">Content</label>
                     <br />
                     <input type="text" [(ngModel)]="book.bookContentDetails.content" id="content" class="form-control"
-                        name="content" placeholder="Enter content" formControlName="content"
-                        [ngClass]="{ 'is-invalid': submitted && f.isActive.errors }" pattern="[A-Za-z ]{3,32}">
+                        name="content" placeholder="Enter your content link here" formControlName="content"
+                        [ngClass]="{ 'is-invalid': submitted && f.content.errors }" pattern="[A-Za-z0-9 ]{3,100}">
                     <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
                         <div *ngIf="f.content.errors.required">content is required</div>
                         <div *ngIf="f.content.errors.pattern">content must be a valid content</div>
