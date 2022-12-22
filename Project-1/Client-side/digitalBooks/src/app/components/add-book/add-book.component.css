@@ -21,6 +21,12 @@
     padding: 10px;
 }
 
+.c-column {
+    float: left;
+    width: 66.66%;
+    padding: 10px;
+}
+
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -74,7 +80,8 @@ select {
 }
 
 button[type=submit] {
-    width: 25%;
+    float: right;
+    width: 30%;
     background-color: #55b7d4;
     color: white;
     padding: 7px 15px;

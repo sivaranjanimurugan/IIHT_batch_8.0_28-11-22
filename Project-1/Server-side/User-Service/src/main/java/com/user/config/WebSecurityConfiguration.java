@@ -59,6 +59,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.permitAll()
 		.antMatchers("/api/v1/digitalbooks/search/by-filter")
 		.permitAll()
+		.antMatchers("/api/v1/digitalbooks/sign-up")
+		.permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()

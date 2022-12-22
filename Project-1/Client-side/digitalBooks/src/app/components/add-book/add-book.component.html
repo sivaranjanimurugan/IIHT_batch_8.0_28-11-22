@@ -1,101 +1,151 @@
-<div class="container center">
-    <h2 class="text-center fs-3 pt-2">Add Book</h2>
+<div class="container center p-5">
+    <h2 class="text-center fs-3">Add Book</h2>
     <!-- <form id="form1" action="./thankyou.html"> -->
     <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
         <div>
             <h4 class="fs-5">Book Details</h4>
             <div class="row">
                 <div class="column">
+                    <label for="logo">Logo</label>
+                    <br />
+                    <input type="text" [(ngModel)]="book.logo" id="logo" class="form-control" name="logo"
+                        placeholder="Enter your category" formControlName="category"
+                        [ngClass]="{ 'is-invalid': submitted && f.logo.errors }">
+                    <div *ngIf="submitted && f.logo.errors" class="invalid-feedback">
+                        <div *ngIf="f.logo.errors.required">logo is required</div>
+                    </div>
+                </div>
+                <div class="column">
                     <label for="title">Title</label>
                     <br />
-                    <input type="text" id="title" class="form-control" name="title" placeholder="Enter your title"
-                        formControlName="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
-                        pattern="[A-Za-z ]{3,32}" title="Title should contains alphabets only">
+                    <input type="text" [(ngModel)]="book.title" id="title" class="form-control" name="title"
+                        placeholder="Enter your title" formControlName="title"
+                        [ngClass]="{ 'is-invalid': submitted && f.title.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="Title should contains alphabets only">
                     <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                         <div *ngIf="f.title.errors.required">Title is required</div>
                         <div *ngIf="f.title.errors.pattern">Title must be a valid title</div>
                     </div>
                 </div>
                 <div class="column">
-                    <label for="dob">Date of birth</label>
+                    <label for="description">Description</label>
                     <br />
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-                <div class="column">
-                    <label for="email">Email</label>
-                    <br />
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input type="text" [(ngModel)]="book.description" id="description" class="form-control"
+                        name="description" placeholder="Enter your description" formControlName="description"
+                        [ngClass]="{ 'is-invalid': submitted && f.description.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="description should contains alphabets only">
+                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                        <div *ngIf="f.description.errors.required">Description is required</div>
+                        <div *ngIf="f.description.errors.pattern">Description must be a valid description</div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="column">
-                    <label for="mobnumber">Mobile Number</label>
+                    <label for="category">Category</label>
                     <br />
-                    <input type="text" id="mobnumber" name="mobnumber" placeholder="Enter mobile number"
-                        pattern="^[789]\d{9,9}$" title="Format: start with 7-9 and remaing 9 digit with 0-9" required>
+                    <input type="text" [(ngModel)]="book.category" id="category" class="form-control" name="category"
+                        placeholder="Enter your category" formControlName="category"
+                        [ngClass]="{ 'is-invalid': submitted && f.category.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="category should contains alphabets only">
+                    <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                        <div *ngIf="f.category.errors.required">Category is required</div>
+                        <div *ngIf="f.category.errors.pattern">Category must be a valid category</div>
+                    </div>
                 </div>
                 <div class="column">
-                    <label for="gender">Gender</label>
+                    <label for="price">Price</label>
                     <br />
-                    <select name="gender" id="gender">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Others">Others</option>
-                    </select>
-                    <!-- <input type="text" id="gender" name="gender" placeholder="Enter your gender"> -->
+                    <input type="text" [(ngModel)]="book.price" id="price" class="form-control" name="price"
+                        placeholder="Enter your price" formControlName="price"
+                        [ngClass]="{ 'is-invalid': submitted && f.price.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="price should contains alphabets only">
+                    <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                        <div *ngIf="f.price.errors.required">price is required</div>
+                        <div *ngIf="f.price.errors.pattern">price must be a valid price</div>
+                    </div>
                 </div>
                 <div class="column">
-                    <label for="occupation">Occupation</label>
+                    <label for="author">Author</label>
                     <br />
-                    <input type="text" id="occupation" name="occupation" placeholder="Enter occupation"
-                        pattern="[A-Za-z ]{3,45}" title="Occupation should contains alphabets only">
+                    <input type="text" [(ngModel)]="book.author" id="author" class="form-control" name="author"
+                        placeholder="Enter author" formControlName="author"
+                        [ngClass]="{ 'is-invalid': submitted && f.author.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="author should contains alphabets only">
+                    <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
+                        <div *ngIf="f.author.errors.required">author is required</div>
+                        <div *ngIf="f.author.errors.pattern">author must be a valid author</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div>
-            <h4 style="padding-left: 10px;">Identity Details</h4>
+            <h4 class="fs-5">Publisher Details</h4>
             <div class="row">
                 <div class="column">
-                    <label for="idtype">ID Type</label>
+                    <label for="publisher">Publisher</label>
                     <br />
-                    <input type="text" id="idtype" name="idtype" placeholder="Enter ID type" pattern="[A-Za-z ]{3,32}"
-                        title="ID type should contains alphabets only" required>
+                    <input type="text" [(ngModel)]="book.publisher" id="publisher" class="form-control" name="publisher"
+                        placeholder="Enter publisher" formControlName="publisher"
+                        [ngClass]="{ 'is-invalid': submitted && f.publisher.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="publisher should contains alphabets only">
+                    <div *ngIf="submitted && f.publisher.errors" class="invalid-feedback">
+                        <div *ngIf="f.publisher.errors.required">publisher is required</div>
+                        <div *ngIf="f.publisher.errors.pattern">publisher must be a valid publisher</div>
+                    </div>
                 </div>
                 <div class="column">
-                    <label for="idnumber">ID Number</label>
+                    <label for="publishedDate">Published Date</label>
                     <br />
-                    <input type="text" id="idnumber" name="idnumber" placeholder="Enter ID number" pattern="[0-9]{4,25}"
-                        title="ID number should contains numbers only" required>
+                    <input type="date" [(ngModel)]="book.publishedDate" id="publishedDate" class="form-control"
+                        name="publishedDate" placeholder="Enter publishedDate" formControlName="author"
+                        [ngClass]="{ 'is-invalid': submitted && f.author.errors }" pattern="[A-Za-z ]{3,32}"
+                        title="publishedDate should contains alphabets only">
+                    <div *ngIf="submitted && f.publishedDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.publishedDate.errors.required">publishedDate is required</div>
+                        <div *ngIf="f.publishedDate.errors.pattern">publishedDate must be a valid publishedDate</div>
+                    </div>
                 </div>
                 <div class="column">
-                    <label for="issuedept">Issue Authority</label>
+                    <label for="isActive">Book Status</label>
                     <br />
-                    <input type="text" id="issuedept" name="issuedept" placeholder="Enter issue department"
-                        pattern="[A-Za-z ]{3,55}" title="Issue authority should contains alphabets only" required>
+                    <input type="text" [(ngModel)]="book.isActive" id="isActive" class="form-control" name="isActive"
+                        placeholder="Enter book status" formControlName="isActive"
+                        [ngClass]="{ 'is-invalid': submitted && f.isActive.errors }" pattern="[A-Za-z ]{3,32}">
+                    <div *ngIf="submitted && f.isActive.errors" class="invalid-feedback">
+                        <div *ngIf="f.isActive.errors.required">isActive is required</div>
+                    </div>
                 </div>
             </div>
             <div class="row">
+                <h4 class="fs-5">Content Details</h4>
                 <div class="column">
-                    <label for="issuedate">Issue Date</label>
+                    <label for="contentType">Content Type</label>
                     <br />
-                    <input type="date" id="issuedate" name="issuedate" required>
+                    <input type="text" [(ngModel)]="book.bookContentDetails.contentType" id="contentType"
+                        class="form-control" name="contentType" placeholder="Enter contentType"
+                        formControlName="contentType" [ngClass]="{ 'is-invalid': submitted && f.contentType.errors }"
+                        pattern="[A-Za-z ]{3,32}">
+                    <div *ngIf="submitted && f.contentType.errors" class="invalid-feedback">
+                        <div *ngIf="f.contentType.errors.required">contentType is required</div>
+                        <div *ngIf="f.contentType.errors.pattern">contentType must be a valid contentType</div>
+                    </div>
                 </div>
-                <div class="column">
-                    <label for="issuestate">Issue State</label>
+                <div class="c-column">
+                    <label for="content">Content</label>
                     <br />
-                    <input type="text" id="issuestate" name="issuestate" placeholder="Enter ID issue state"
-                        pattern="[A-Za-z ]{3,32}" title="Issue state should contains alphabets only" required>
-                </div>
-                <div class="column">
-                    <label for="expdate">Expiry Date</label>
-                    <br />
-                    <input type="date" id="expdate" name="expdate" required>
+                    <input type="text" [(ngModel)]="book.bookContentDetails.content" id="content" class="form-control"
+                        name="content" placeholder="Enter content" formControlName="content"
+                        [ngClass]="{ 'is-invalid': submitted && f.isActive.errors }" pattern="[A-Za-z ]{3,32}">
+                    <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+                        <div *ngIf="f.content.errors.required">content is required</div>
+                        <div *ngIf="f.content.errors.pattern">content must be a valid content</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div style="padding-left: 10px;">
-            <button type="submit">Next</button>
-            <!-- <a href="#" class="next">Next &raquo;</a> -->
+        <div class="pb-3">
+            <button type="submit">Submit</button>
         </div>
     </form>
 </div>

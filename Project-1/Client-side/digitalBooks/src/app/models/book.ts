@@ -1,9 +1,21 @@
 export default class Book {
-    bookName: string = '';
-    authorName: string = '';
+    logo: any;
+    title: string = '';
+    description: string = '';
+    category: string = '';
     price: number = 0.00;
-    genre: string = '';
-    borrowed: boolean = false;
+    author: string = '';
+    isActive: boolean = false;
+    publisher: string = '';
+    publishedDate: any;
+    bookContentDetails: BookContent = new BookContent();
+}
+
+export class BookContent {
+    contentType: string = '';
+    content: string = '';
+    // createdTime: Date = new Date();
+    // updatedTime: Date = new Date();
 }
 
 export class BookFilter {
