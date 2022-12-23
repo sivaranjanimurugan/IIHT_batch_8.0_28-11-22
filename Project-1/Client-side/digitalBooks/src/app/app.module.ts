@@ -17,6 +17,7 @@ import { SearchComponent } from './components/search/search.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { MatCardModule } from '@angular/material/card';
+import { ViewBookComponent } from './components/view-book/view-book.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatCardModule } from '@angular/material/card';
     FooterComponent,
     SearchComponent,
     BookItemComponent,
-    AddBookComponent
+    AddBookComponent,
+    ViewBookComponent
   ],
   imports: [
     BrowserModule,

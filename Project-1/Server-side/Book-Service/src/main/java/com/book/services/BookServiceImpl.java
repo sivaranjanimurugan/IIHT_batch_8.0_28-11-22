@@ -106,4 +106,14 @@ public class BookServiceImpl implements IBookService {
 	public Book getBookBySubscribedId(String subName, Long subscribedId) {
 		return subscribeRepo.findbookBySubscriptionIdandUsername(subName, subscribedId);
 	}
+
+	@Override
+	public List<Book> getAllBooks(String author) {
+		return bookRepo.findAllbooksByAuthor(author);
+	}
+
+	@Override
+	public void deleteBook(Long id) {
+		bookRepo.deleteById(id);
+	}
 }

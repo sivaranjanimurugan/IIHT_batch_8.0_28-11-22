@@ -30,5 +30,8 @@ public interface BookRepository extends JpaRepository<Book, Long>{
 			@Param("author") String author,
 			@Param("price") Float price
 			);
+	
+	@Query("select t from Book t where t.author = :author")
+	List<Book> findAllbooksByAuthor(@Param("author") String author);
 
 }

@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
 const BASE_URL = "http://localhost:8085/api/v1/digitalbooks";
 
 const reqHeaders = new HttpHeaders({
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer ' + localStorage.getItem('token')
+  'Content-Type': 'application/json'
 })
 
 const httpOptions = {
@@ -36,6 +35,6 @@ export class UserService {
     username: string;
     password: string;
   }) {
-    return this.http.post(BASE_URL + "/sign-in", request);
+    return this.http.post(BASE_URL + "/sign-in", request, httpOptions);
   }
 }

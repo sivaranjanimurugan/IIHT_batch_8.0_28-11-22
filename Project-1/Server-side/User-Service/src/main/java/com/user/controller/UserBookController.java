@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -88,6 +89,18 @@ public class UserBookController {
 		List<?> result = restTemplate.getForObject("http://BOOK-SERVICE/get/" + subId + "/by-user/" + subName,
 				List.class);
 		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
+	@GetMapping("/author/{username}/books")
+	public ResponseEntity<?> getAllBooks(@PathVariable("username") String username) {
+		List<?> result = restTemplate.getForObject("http://BOOK-SERVICE/" + username + "/books", List.class);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/author/delete/{id}")
+	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
+		restTemplate.delete("http://BOOK-SERVICE/delete/" + id);
+		return new ResponseEntity<>("Book deleted successfully !", HttpStatus.OK);
 	}
 
 }

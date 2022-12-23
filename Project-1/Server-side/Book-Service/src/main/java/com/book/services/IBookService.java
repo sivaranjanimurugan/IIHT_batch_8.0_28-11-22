@@ -19,6 +19,10 @@ public interface IBookService {
 	
 	public List<Book> searchBook(BookFilter filter);
 	
+	public List<Book> getAllBooks(String author);
+	
+	public void deleteBook(Long id);
+	
 	//reader
 	public Long subscribeBook(Long bookId, SubscribeDetails subDetails);
 	
