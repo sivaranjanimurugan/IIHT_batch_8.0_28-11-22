@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
