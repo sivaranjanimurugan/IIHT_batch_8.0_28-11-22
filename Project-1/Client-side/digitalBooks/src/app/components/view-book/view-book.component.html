@@ -1,4 +1,4 @@
-<div class="container-fluid ps-md-0 custom scroll" class="p-3">
+<div class="container-fluid ps-md-0 custom" class="p-3">
     <div class="text-center p-0">
         <h2 class="fs-5 text-decoration-underline">All Available Books</h2>
     </div>
@@ -6,35 +6,46 @@
         <button type="button" (click)="sortBooks()" class="btn btn-outline-warning mx-2">SortByPrice</button>
         <button type="button" (click)="getAllBooks()" class="btn btn-outline-info">Refresh</button>
     </div>
-    <table class="table table-striped align-middle">
-        <thead>
-            <tr class="fs-6">
-                <th scope="col">S.No</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Category</th>
-                <th scope="col">Price</th>
-                <th scope="col">Author</th>
-                <th scope="col">Publisher</th>
-                <th scope="col">published Date</th>
-                <th scope="col">Creation Time</th>
-                <th scope="col">Action</th>
-                <th scope="col">Content Type</th>
-                <th scope="col">Content</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let b of books, index as i">
-            <tr class="fs-6">
-                <th scope="row">{{i+1}}</th>
-                <td>{{b.title}}</td>
-                <td>{{b.description}}</td>
-                <td>{{b.price}}</td>
-                <td>{{b.author}}</td>
-                <td>{{b.publishedDate}}</td>
-                <td>
-                    <button type="button" (click)="deleteBook(b, i)" class="btn btn-outline-danger">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container-fluid tableFixHead">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr class="fs-6">
+                    <th scope="col">S.No</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">published Date</th>
+                    <th scope="col">Creation Time</th>
+                    <th scope="col">Active</th>
+                    <th scope="col">Content Type</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let b of books, index as i">
+                <tr class="fs-6">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{b.title}}</td>
+                    <td>{{b.description}}</td>
+                    <td>{{b.category}}</td>
+                    <td>{{b.price}}</td>
+                    <td>{{b.author}}</td>
+                    <td>{{b.publisher}}</td>
+                    <td>{{b.publishedDate}}</td>
+                    <td>{{b.createdTime}}</td>
+                    <td>{{b.isActive}}</td>
+                    <td>{{b.createdTime}}</td>
+                    <td>{{b.createdTime}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-secondary mx-2">Block</button>
+                        <button type="button" (click)="deleteBook(b, i)" class="btn btn-outline-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>

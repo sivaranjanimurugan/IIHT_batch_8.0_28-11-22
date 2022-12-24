@@ -9,6 +9,7 @@ export default class Book {
     publisher: string = '';
     publishedDate: string = ''
     bookContentDetails: BookContent[] = [];
+    createdTime: any;
 }
 
 export class BookContent {
