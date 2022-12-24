@@ -53,7 +53,7 @@ export class BookService {
   }
 
   deleteBook(book: any) {
-    return this.http.get(BASE_URL + "/author/delete/" + book.id, this.httpOptions);
+    return this.http.delete(BASE_URL + "/author/delete/" + book.id, this.httpOptions);
   }
 
 }

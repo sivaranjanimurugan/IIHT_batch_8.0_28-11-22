@@ -26,45 +26,45 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(name = "LOGO")
 	private Byte[] logo;
 
 	@Column(name = "TITLE")
 	private String title;
-	
+
 	@Column(name = "DESCRIPTION")
 	private String description;
 
 	@Column(name = "CATEGORY")
 	private String category;
-	
+
 	@Column(name = "PRICE")
 	private Float price;
-	
+
 	@Column(name = "AUTHOR")
 	private String author;
-	
+
 	@Column(name = "PUBLISHER")
 	private String publisher;
 
 	@Column(name = "PUBLISHED_DATE")
 	private LocalDate publishedDate;
-	
+
 	@CreationTimestamp
 	@Column(name = "CREATION_TIMESTAMP")
 	private LocalDateTime createdTime;
-	
+
 	@UpdateTimestamp
 	@Column(name = "UPDATION_TIMESTAMP")
 	private LocalDateTime updatedTime;
-	
+
 	@Column(name = "IS_ACTIVE")
 	private Boolean isActive;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BookContentDetails> bookContentDetails;
-	
+
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BookSubscriptionDetails> bookSubDetails;

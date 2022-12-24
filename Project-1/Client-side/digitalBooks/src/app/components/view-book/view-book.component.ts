@@ -26,7 +26,7 @@ export class ViewBookComponent implements OnInit {
         this.books.splice(index, 1);
       }
     )
-    window.location.reload();
+    // window.location.reload();
     alert("Book deleted successfully !!");
   }
 
