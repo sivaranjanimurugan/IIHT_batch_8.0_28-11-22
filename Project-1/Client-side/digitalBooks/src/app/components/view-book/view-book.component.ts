@@ -40,6 +40,19 @@ export class ViewBookComponent implements OnInit {
       });
   }
 
+  //create new book
+  blockBook(book: any, index: any, isActive: boolean) {
+    const observable = this.bookService.blockBook(book, true);
+    observable.subscribe(
+      (res) => {
+        console.log(res);
+        this.books.splice(index, 1);
+      }
+    )
+    // window.location.reload();
+    alert("Book blocked successfully !!");
+  }
+
   //sort book by price
   sortBooks() {
     this.books.sort((book1, book2) => {

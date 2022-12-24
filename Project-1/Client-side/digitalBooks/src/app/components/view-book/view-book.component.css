@@ -3,13 +3,6 @@
    height: 100%;
 }
 
-/* .scroll {
-   overflow-y: scroll;
-   overflow-x: scroll;
-   height: 400px;
-   display: block;
-} */
-
 .tableFixHead {
    overflow: auto;
    height: 400px;
@@ -20,7 +13,6 @@
    top: 0;
    z-index: 1;
    background-color: aqua;
-   /* text-align: center; */
 }
 
 table {
@@ -29,6 +21,7 @@ table {
 
 td,
 th {
-   width: 200px;
+   width: 150px;
+   height: 70px;
    word-wrap: break-word;
 }

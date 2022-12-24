@@ -1,5 +1,5 @@
 <div class="container-fluid ps-md-0 custom" class="p-3">
-    <div class="text-center p-0">
+    <div class="text-center pt-2">
         <h2 class="fs-5 text-decoration-underline">All Available Books</h2>
     </div>
     <div class="text-end p-2">
@@ -20,8 +20,7 @@
                     <th scope="col">published Date</th>
                     <th scope="col">Creation Time</th>
                     <th scope="col">Active</th>
-                    <th scope="col">Content Type</th>
-                    <th scope="col">Content</th>
+                    <th class="text-center" scope="col">Content</th>
                     <th class="text-center" scope="col">Action</th>
                 </tr>
             </thead>
@@ -37,11 +36,17 @@
                     <td>{{b.publishedDate}}</td>
                     <td>{{b.createdTime}}</td>
                     <td>{{b.isActive}}</td>
-                    <td>{{b.createdTime}}</td>
-                    <td>{{b.createdTime}}</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-secondary mx-2">Block</button>
-                        <button type="button" (click)="deleteBook(b, i)" class="btn btn-outline-danger">Delete</button>
+                    <td class="text-center">
+                        <ul class="list-group" *ngFor="let c of b.bookContentDetails, index as i">
+                            <li class="list-group-item">{{c.contentType}}:
+                                <a href={{c.content}} target="_blank">{{c.content}}</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-outline-danger m-1 px-3">Block</button><br />
+                        <button type="button" class="btn btn-outline-success m-1">Active</button>
+                        <!-- <button type="button" (click)="deleteBook(b, i)" class="btn btn-outline-danger">Delete</button> -->
                     </td>
                 </tr>
             </tbody>

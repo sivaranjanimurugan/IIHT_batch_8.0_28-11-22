@@ -56,4 +56,9 @@ export class BookService {
     return this.http.delete(BASE_URL + "/author/delete/" + book.id, this.httpOptions);
   }
 
+  blockBook(book: any, isActive: boolean) {
+    return this.http.put(BASE_URL + "/author/update/is-active/" + book.id, isActive, this.httpOptions);
+  }
+
+
 }
