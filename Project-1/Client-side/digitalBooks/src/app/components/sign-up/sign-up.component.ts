@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import User from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SignUpComponent implements OnInit {
   //Form Validables 
@@ -16,11 +18,12 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService) { }
+    private userService: UserService,
+    private snackBar: MatSnackBar) { }
 
   //Add user form actions
   get f() { return this.RegisterForm.controls; }
-  
+
   onSubmit() {
 
     this.submitted = true;
@@ -53,10 +56,23 @@ export class SignUpComponent implements OnInit {
     observables.subscribe(
       (res: any) => {
         // console.log(res);
-      }, function (error) {
-        console.log(error);
-        alert("Something went wrong !, Please try again");
+        this.successSnackBar("Your account is created successfully!");
+      }, (err) => {
+        this.errorSnackBar("Something went wrong !, Please try again");
+        console.log(err);
       }
     )
+  }
+
+  successSnackBar(message: string) {
+    this.snackBar.open(message, 'X', {
+      duration: 6000, panelClass: 'snackbar-success'
+    });
+  }
+
+  errorSnackBar(message: string) {
+    this.snackBar.open(message, 'X', {
+      duration: 6000, panelClass: 'snackbar-error'
+    });
   }
 }

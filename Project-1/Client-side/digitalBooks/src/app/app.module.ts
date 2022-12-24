@@ -18,6 +18,7 @@ import { BookItemComponent } from './components/book-item/book-item.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { MatCardModule } from '@angular/material/card';
 import { ViewBookComponent } from './components/view-book/view-book.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ViewBookComponent } from './components/view-book/view-book.component';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

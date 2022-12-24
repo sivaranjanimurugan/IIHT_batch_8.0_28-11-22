@@ -17,3 +17,15 @@
     letter-spacing: 0.05rem;
     padding: 0.75rem 1rem;
 }
+
+.snackbar-success {
+    background-color: green;
+    color: white !important;
+    max-width: 1000px;
+  }
+
+  .snackbar-error {
+    background-color: red;
+    color: white !important;
+    max-width: 1000px;
+  }
