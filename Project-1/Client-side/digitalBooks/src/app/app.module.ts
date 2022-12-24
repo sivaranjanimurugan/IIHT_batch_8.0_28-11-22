@@ -14,7 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search/search.component';
-import { BookItemComponent } from './components/book-item/book-item.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { MatCardModule } from '@angular/material/card';
 import { ViewBookComponent } from './components/view-book/view-book.component';
@@ -30,7 +29,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HeaderComponent,
     FooterComponent,
     SearchComponent,
-    BookItemComponent,
     AddBookComponent,
     ViewBookComponent
   ],
