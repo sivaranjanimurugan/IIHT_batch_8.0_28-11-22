@@ -3,7 +3,7 @@
   }
   
   .bg-image {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqF5-0ujIreQzUxPWsKZUJTwduoxkriuyFLA&usqp=CAU');
+    background-image: url('../../../assets/login-image.jfif');
     background-size: cover;
     background-position: center;
   }
