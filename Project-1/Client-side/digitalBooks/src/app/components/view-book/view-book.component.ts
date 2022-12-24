@@ -40,9 +40,9 @@ export class ViewBookComponent implements OnInit {
       });
   }
 
-  //create new book
-  blockBook(book: any, index: any, isActive: boolean) {
-    const observable = this.bookService.blockBook(book, true);
+  //block
+  blockBook(book: any, index: any) {
+    const observable = this.bookService.blockBook(book, false);
     observable.subscribe(
       (res) => {
         console.log(res);
@@ -51,6 +51,19 @@ export class ViewBookComponent implements OnInit {
     )
     // window.location.reload();
     alert("Book blocked successfully !!");
+  }
+
+  //block
+  unblockBook(book: any, index: any) {
+    const observable = this.bookService.blockBook(book, true);
+    observable.subscribe(
+      (res) => {
+        console.log(res);
+        this.books.splice(index, 1);
+      }
+    )
+    // window.location.reload();
+    alert("Book unblocked successfully !!");
   }
 
   //sort book by price

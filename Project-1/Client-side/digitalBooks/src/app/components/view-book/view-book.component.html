@@ -38,14 +38,16 @@
                     <td>{{b.isActive}}</td>
                     <td class="text-center">
                         <ul class="list-group" *ngFor="let c of b.bookContentDetails, index as i">
-                            <li class="list-group-item">{{c.contentType}}:
+                            <li class="list-group-item m-1">{{c.contentType}}:
                                 <a href={{c.content}} target="_blank">{{c.content}}</a>
                             </li>
                         </ul>
                     </td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-outline-danger m-1 px-3">Block</button><br />
-                        <button type="button" class="btn btn-outline-success m-1">Active</button>
+                        <button type="button" (click)="blockBook(b, i)"
+                            class="btn btn-outline-danger m-1 px-3">Block</button><br />
+                        <button type="button" (click)="unblockBook(b, i)"
+                            class="btn btn-outline-success m-1">Active</button>
                         <!-- <button type="button" (click)="deleteBook(b, i)" class="btn btn-outline-danger">Delete</button> -->
                     </td>
                 </tr>

@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   submitted = false;
   filter: BookFilter = new BookFilter();
   books: Book[] = [];
-  items: string[] = ['hello','hi', '1', '2', '4']
+  items: string[] = ['hello','hi', '1', '2', '4', '5']
 
   constructor(
     private formBuilder: FormBuilder,
