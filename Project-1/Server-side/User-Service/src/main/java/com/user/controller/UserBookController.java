@@ -107,4 +107,10 @@ public class UserBookController {
 		return new ResponseEntity<>("Book deleted successfully !", HttpStatus.OK);
 	}
 
+	@GetMapping("/getall/notify/by-user/{subName}")
+	public ResponseEntity<?> getAllNotificationByUser(@PathVariable String subName) {
+		List<?> result = restTemplate.getForObject("http://BOOK-SERVICE/getall/note/by-user/" + subName, List.class);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
+
 }

@@ -3,6 +3,7 @@ package com.book.services;
 import java.util.List;
 
 import com.book.entity.Book;
+import com.book.entity.Notification;
 import com.book.models.BookFilter;
 import com.book.models.SubscribeDetails;
 
@@ -31,5 +32,8 @@ public interface IBookService {
 	public List<Book> getAllSubscribedBooks(String subName);
 	
 	public Book getBookBySubscribedId(String subName, Long subscribedId);
+	
+	//notification
+	public List<Notification> getAllNoteByuser(String username);
 	
 }

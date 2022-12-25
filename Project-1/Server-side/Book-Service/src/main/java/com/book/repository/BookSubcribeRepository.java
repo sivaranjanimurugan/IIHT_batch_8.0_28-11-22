@@ -21,5 +21,8 @@ public interface BookSubcribeRepository extends JpaRepository<BookSubscriptionDe
 	
 	@Query("select t from BookSubscriptionDetails t where t.subName = :username and t.book.id = :bookId and t.isSubscribed = true")
 	BookSubscriptionDetails findBookByusernameandbookId(@Param("username") String username, @Param("bookId") Long bookId);
+	
+	@Query("select t from BookSubscriptionDetails t where t.book.id = :bookId and t.isSubscribed = true")
+	List<BookSubscriptionDetails> findAllBookBybookId(@Param("bookId") Long bookId);
 
 }

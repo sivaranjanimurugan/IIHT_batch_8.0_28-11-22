@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ViewBookComponent } from './components/view-book/view-book.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SubscribedBookComponent } from './components/subscribed-book/subscribed-book.component';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SubscribedBookComponent } from './components/subscribed-book/subscribed
     SearchComponent,
     AddBookComponent,
     ViewBookComponent,
-    SubscribedBookComponent
+    SubscribedBookComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

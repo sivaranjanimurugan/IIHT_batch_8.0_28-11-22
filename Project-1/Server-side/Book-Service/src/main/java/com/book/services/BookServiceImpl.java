@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.book.entity.Book;
 import com.book.entity.BookSubscriptionDetails;
+import com.book.entity.Notification;
 import com.book.exceptions.ResourceNotFoundExceptionHandler;
 import com.book.models.BookFilter;
 import com.book.models.SubscribeDetails;
 import com.book.repository.BookRepository;
 import com.book.repository.BookSubcribeRepository;
+import com.book.repository.NotificationRepository;
 
 @Service
 @Transactional
@@ -22,6 +24,9 @@ public class BookServiceImpl implements IBookService {
 
 	@Autowired
 	private BookSubcribeRepository subscribeRepo;
+	
+	@Autowired
+	private NotificationRepository noteRepo;
 
 	@Override
 	public Book createBook(Book newBook) {
@@ -54,6 +59,16 @@ public class BookServiceImpl implements IBookService {
 
 	@Override
 	public void changeBookStatus(Long id, Boolean isActive) {
+		List<BookSubscriptionDetails> subDetails = subscribeRepo.findAllBookBybookId(id);
+		for (BookSubscriptionDetails sub : subDetails) {
+			Notification note = new Notification();
+			note.setUsername(sub.getSubName());
+			if (isActive) {
+				note.setMsg("Book name " + sub.getBook().getTitle() + " was UnBlocked By Author");
+			} else {
+				note.setMsg("Book name " + sub.getBook().getTitle() + " was Blocked By Author");
+			}
+		}
 		bookRepo.updateActiveById(isActive, id);
 	}
 
@@ -72,6 +87,11 @@ public class BookServiceImpl implements IBookService {
 		Book existingBook = bookRepo.findById(bookId)
 				.orElseThrow(() -> new ResourceNotFoundExceptionHandler("Book", "id", bookId));
 		// subscribe
+		BookSubscriptionDetails existingSub = subscribeRepo.findBookByusernameandbookId(subDetails.getSubName(),
+				bookId);
+		if (existingSub != null) {
+			return existingSub.getId();
+		}
 		BookSubscriptionDetails subscribe = new BookSubscriptionDetails();
 		subscribe.setSubName(subDetails.getSubName());
 		subscribe.setSubRole(subDetails.getSubRole());
@@ -117,5 +137,10 @@ public class BookServiceImpl implements IBookService {
 //		Book book = getBookById(id);
 //		book.getBookContentDetails().
 		bookRepo.deleteById(id);
+	}
+
+	@Override
+	public List<Notification> getAllNoteByuser(String username) {
+		return noteRepo.findAllByUsername(username);
 	}
 }

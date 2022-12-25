@@ -8,8 +8,8 @@
                 <div class="column">
                     <label for="logo">Logo</label>
                     <br />
-                    <input type="file" id="logo" class="form-control" name="logo" placeholder="Enter your category"
-                        formControlName="category">
+                    <input type="file" (change)="onFileChange($event)" accept="image/*" id="logo" class="form-control" name="logo"
+                        placeholder="Enter your category" formControlName="logo">
                 </div>
                 <div class="column">
                     <label for="title">Title</label>

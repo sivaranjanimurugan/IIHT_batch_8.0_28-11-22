@@ -24,6 +24,9 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item fs-6">
+            <a class="nav-link" *ngIf="role === 'READER' || role === 'AUTHOR'" routerLink="author/notification">Notifications</a>
+          </li>
+          <li class="nav-item fs-6">
             <a class="nav-link" *ngIf="role === 'READER' || role === 'AUTHOR'" routerLink="" (click)="signOut()">Sign
               out</a>
           </li>
