@@ -27,27 +27,28 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {
     //Add User form validations
     this.bookForm = this.formBuilder.group({
-      // title: ['', [Validators.required, Validators.pattern]],
-      // description: ['', [Validators.required, Validators.pattern]],
-      // category: ['', [Validators.required, Validators.pattern]],
-      // price: ['', [Validators.required, Validators.pattern]],
-      // author: ['', [Validators.required, Validators.pattern]],
-      // publisher: ['', [Validators.required, Validators.pattern]],
-      // publishedDate: ['', [Validators.required]],
-      // isActive: ['', [Validators.required]],
-      // contentType: ['', [Validators.required, Validators.pattern]],
-      // content: ['', [Validators.required, Validators.pattern]]
       logo: ['', []],
-      title: ['', []],
-      description: ['', []],
-      category: ['', []],
-      price: ['', []],
-      author: ['', []],
-      publisher: ['', []],
-      publishedDate: ['', []],
-      isActive: ['', []],
-      contentType: ['', []],
-      content: ['', []]
+      title: ['', [Validators.required, Validators.pattern]],
+      description: ['', [Validators.required, Validators.pattern]],
+      category: ['', [Validators.required, Validators.pattern]],
+      price: ['', [Validators.required, Validators.pattern]],
+      author: ['', [Validators.required, Validators.pattern]],
+      publisher: ['', [Validators.required, Validators.pattern]],
+      publishedDate: ['', [Validators.required]],
+      isActive: ['', [Validators.required]],
+      contentType: ['', [Validators.required, Validators.pattern]],
+      content: ['', [Validators.required]]
+      // logo: ['', []],
+      // title: ['', []],
+      // description: ['', []],
+      // category: ['', []],
+      // price: ['', []],
+      // author: ['', []],
+      // publisher: ['', []],
+      // publishedDate: ['', []],
+      // isActive: ['', []],
+      // contentType: ['', []],
+      // content: ['', []]
     });
   }
 

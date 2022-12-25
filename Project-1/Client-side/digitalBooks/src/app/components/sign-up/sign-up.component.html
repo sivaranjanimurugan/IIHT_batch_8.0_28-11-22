@@ -47,9 +47,15 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input [(ngModel)]="user.role" type="text" class="form-control" id="floatingInput"
+                  <!-- <input [(ngModel)]="user.role" type="text" class="form-control" id="floatingInput"
                     placeholder="Enter role" formControlName="role" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.role.errors }" id="role">
+                    [ngClass]="{ 'is-invalid': submitted && f.role.errors }" id="role"> -->
+                  <select formControlName="isActive" [(ngModel)]="user.role" type="text"
+                    class="form-control form-select" id="floatingInput" placeholder="Enter role" formControlName="role"
+                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }" id="role">
+                    <option ngValue="READER">Reader</option>
+                    <option ngValue="AUTHOR">Author</option>
+                  </select>
                   <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
                     <div *ngIf="f.role.errors.required">Role is required</div>
                     <div *ngIf="f.role.errors.role">Role must be a valid role</div>
