@@ -82,8 +82,8 @@ public class BookServiceImpl implements IBookService {
 
 	@Override
 	public Integer unsubscribeBook(Long subId, SubscribeDetails subDetails) {
-		BookSubscriptionDetails existingSub = subscribeRepo.findById(subId)
-				.orElseThrow(() -> new ResourceNotFoundExceptionHandler("Subscription", "id", subId));
+		BookSubscriptionDetails existingSub = subscribeRepo.findBookByusernameandbookId(subDetails.getSubName(), subId);
+//				.orElseThrow(() -> new ResourceNotFoundExceptionHandler("Subscription", "id", subId));
 		LocalDateTime startTime = existingSub.getCreatedTime();
 		LocalDateTime endTime = existingSub.getCreatedTime().plusDays(1);
 		LocalDateTime now = LocalDateTime.now();

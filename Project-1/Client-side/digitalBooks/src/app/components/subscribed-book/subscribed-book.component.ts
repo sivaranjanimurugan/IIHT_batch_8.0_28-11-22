@@ -41,14 +41,15 @@ export class SubscribedBookComponent implements OnInit {
   }
 
   //subscribe book
-  unsubscribeBook(book: any) {
+  unsubscribeBook(book: any, index: any) {
     this.subDetails.subName = this.tokenService.getUser().username;
     this.subDetails.subRole = this.tokenService.getUser().role;
     this.subDetails.isSubscribed = false;
-    const observable = this.bookService.subscribeBook(book, this.subDetails);
+    const observable = this.bookService.unsubscribeBook(book, this.subDetails);
     observable.subscribe(
       (res) => {
-        this.successSnackBar("Book subscribed successfully!");
+        this.books.splice(index, 1);
+        this.successSnackBar("Book unsubscribed successfully!");
       }, (err) => {
         this.errorSnackBar("Something went wrong !, Please try again");
         console.log(err);
