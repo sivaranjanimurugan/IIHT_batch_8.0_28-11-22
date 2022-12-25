@@ -1,0 +1,27 @@
+<!--Search Items-->
+<div class="container-fluid ps-md-0">
+    <div class="container-fluid search p-3 mx-1">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let b of books, index as i">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="../../../assets/book-image.jfif" class="img-fluid rounded-start" alt="book"
+                                style="height: 100%;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 badge bg-primary text-wrap">{{b.title}}</h5>
+                                <p class="card-text">Author: {{b.author}}</p>
+                                <p class="card-text">Category: {{b.category}}</p>
+                                <p class="card-text">Price: {{b.price}}</p>
+                                <p class="card-text"><button type="button" class="btn btn-outline-success btn-sm"
+                                        (click)="unsubscribeBook(b)">Unsubscribe</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,71 +1,36 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import Book, { BookFilter, SubscribeDetails } from 'src/app/models/book';
+import Book, { SubscribeDetails } from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  selector: 'app-subscribed-book',
+  templateUrl: './subscribed-book.component.html',
+  styleUrls: ['./subscribed-book.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SearchComponent implements OnInit {
-
-  //Form Validables 
-  SearchForm: any = FormGroup;
-  submitted = false;
-  filter: BookFilter = new BookFilter();
+export class SubscribedBookComponent implements OnInit {
   books: Book[] = [];
   subDetails: SubscribeDetails = new SubscribeDetails();
-  enable: boolean = false;
 
   constructor(
-    private formBuilder: FormBuilder,
     private bookService: BookService,
-    private snackBar: MatSnackBar,
-    private tokenService: TokenStorageService
+    private tokenService: TokenStorageService,
+    private snackBar: MatSnackBar
   ) { }
-  //Add user form actions
-  get f() { return this.SearchForm.controls; }
-  onSubmit() {
 
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.SearchForm.invalid) {
-      return;
-    }
-    //True if all the fields are filled
-    if (this.submitted) {
-      this.searchBooks();
-    }
-
+  ngOnInit(): void {
+    this.subscribedBooks();
   }
 
-  ngOnInit() {
-    if (this.tokenService.getUser().role === 'READER' || this.tokenService.getUser().role === 'AUTHOR') {
-      this.enable = true;
-    }
-    // console.log(this.tokenService.getUser().role);
-    // console.log(this.enable);
-
-    //Add User form validations
-    this.SearchForm = this.formBuilder.group({
-      title: [[]],
-      category: [[]],
-      price: [[]],
-      author: [[]]
-    });
-  }
-
-  //get all books based on filter
-  searchBooks() {
+  //get all subscribed books
+  subscribedBooks() {
     // console.log(this.filter);
-    const promise = this.bookService.searchBooks(this.filter);
+    const promise = this.bookService.subscribedBooks(this.tokenService.getUser().username);
     promise.subscribe(
       (res) => {
-        // console.log(res);
+        console.log(res);
         this.books = res as Book[];
         this.successSnackBar("Book loaded successfully!");
       }, (err) => {
@@ -76,10 +41,10 @@ export class SearchComponent implements OnInit {
   }
 
   //subscribe book
-  subscribeBook(book: any) {
+  unsubscribeBook(book: any) {
     this.subDetails.subName = this.tokenService.getUser().username;
     this.subDetails.subRole = this.tokenService.getUser().role;
-    this.subDetails.isSubscribed = true;
+    this.subDetails.isSubscribed = false;
     const observable = this.bookService.subscribeBook(book, this.subDetails);
     observable.subscribe(
       (res) => {
@@ -102,5 +67,6 @@ export class SearchComponent implements OnInit {
       duration: 5000, panelClass: 'snackbar-error'
     });
   }
+
 
 }

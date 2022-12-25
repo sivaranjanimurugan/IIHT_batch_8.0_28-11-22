@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -33,6 +32,11 @@ public class UserBookController {
 
 	@PostMapping("/search/by-filter")
 	public ResponseEntity<?> searchBooks(@RequestBody BookFilter filter) {
+		// null handling
+		filter.setTitle(filter.getTitle() == "" ? null : filter.getTitle());
+		filter.setAuthor(filter.getAuthor() == "" ? null : filter.getAuthor());
+		filter.setPrice(filter.getPrice() == 0 ? null : filter.getPrice());
+		filter.setCategory(filter.getCategory() == "" ? null : filter.getCategory());
 		List<?> result = restTemplate.postForObject("http://BOOK-SERVICE/search", filter, List.class);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
@@ -79,13 +83,13 @@ public class UserBookController {
 	}
 
 	@GetMapping("/reader/getall/by-user/{subName}")
-	public ResponseEntity<?> getAllByUser(@RequestParam String subName) {
+	public ResponseEntity<?> getAllByUser(@PathVariable String subName) {
 		List<?> result = restTemplate.getForObject("http://BOOK-SERVICE/getall/by-user/" + subName, List.class);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 	@GetMapping("/reader/get/{subId}/by-user/{subName}")
-	public ResponseEntity<?> getBookByUserAndSubId(@RequestParam String subName, @RequestParam Long subId) {
+	public ResponseEntity<?> getBookByUserAndSubId(@PathVariable String subName, @PathVariable Long subId) {
 		List<?> result = restTemplate.getForObject("http://BOOK-SERVICE/get/" + subId + "/by-user/" + subName,
 				List.class);
 		return new ResponseEntity<>(result, HttpStatus.OK);

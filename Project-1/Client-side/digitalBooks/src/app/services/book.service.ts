@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BookContent } from '../models/book';
+import { BookContent, SubscribeDetails } from '../models/book';
 import { TokenStorageService } from './token-storage.service';
 
 const BASE_URL = "http://localhost:8085/api/v1/digitalbooks";
@@ -58,6 +58,18 @@ export class BookService {
 
   blockBook(book: any, isActive: boolean) {
     return this.http.put(BASE_URL + "/author/update/is-active/" + book.id, isActive, this.httpOptions);
+  }
+
+  subscribeBook(book: any, subDetails: SubscribeDetails) {
+    return this.http.put(BASE_URL + "/reader/update/is-subscribe/" + book.id, subDetails, this.httpOptions);
+  }
+
+  unsubscribeBook(book: any, subDetails: SubscribeDetails) {
+    return this.http.put(BASE_URL + "/reader/update/cancel-subscription/" + book.id, subDetails, this.httpOptions);
+  }
+
+  subscribedBooks(subName: string) {
+    return this.http.get(BASE_URL + "/reader/getall/by-user/" + subName, this.httpOptions);
   }
 
 

@@ -45,46 +45,6 @@
     font: 1em sans-serif;
 }
 
-input[type=text],
-select {
-    width: 100%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type=number],
-select {
-    width: 100%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type=date],
-select {
-    width: 100%;
-    padding: 6px 14px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-input[type=email],
-select {
-    width: 100%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
 button[type=submit] {
     /* float: right; */
     width: 20%;

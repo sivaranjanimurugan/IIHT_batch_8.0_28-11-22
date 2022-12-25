@@ -25,3 +25,9 @@ export class BookFilter {
     author: string = '';
     price: number = 0;
 }
+
+export class SubscribeDetails {
+    subName: string = '';
+    subRole: string = '';
+    isSubscribed: boolean = false;
+}

@@ -18,6 +18,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { MatCardModule } from '@angular/material/card';
 import { ViewBookComponent } from './components/view-book/view-book.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SubscribedBookComponent } from './components/subscribed-book/subscribed-book.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FooterComponent,
     SearchComponent,
     AddBookComponent,
-    ViewBookComponent
+    ViewBookComponent,
+    SubscribedBookComponent
   ],
   imports: [
     BrowserModule,
