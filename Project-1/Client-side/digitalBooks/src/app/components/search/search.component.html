@@ -8,7 +8,7 @@
                     <br />
                     <input type="text" [(ngModel)]="filter.title" id="title" class="form-control" name="title"
                         placeholder="Enter your title" formControlName="title"
-                        [ngClass]="{ 'is-invalid': submitted && f.title.errors }" pattern="[A-Za-z ]{3,32}"
+                        [ngClass]="{ 'is-invalid': submitted && f.title.errors }" pattern="[A-Za-z ]{1,32}"
                         title="Title should contains alphabets only">
                     <!-- <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                         <div *ngIf="f.title.errors.required">Title is required</div>
@@ -20,7 +20,7 @@
                     <br />
                     <input type="text" [(ngModel)]="filter.category" id="category" class="form-control" name="category"
                         placeholder="Enter your category" formControlName="category"
-                        [ngClass]="{ 'is-invalid': submitted && f.category.errors }" pattern="[A-Za-z ]{3,32}"
+                        [ngClass]="{ 'is-invalid': submitted && f.category.errors }" pattern="[A-Za-z ]{1,32}"
                         title="category should contains alphabets only">
                     <!-- <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
                         <div *ngIf="f.category.errors.required">Category is required</div>
@@ -44,7 +44,7 @@
                     <br />
                     <input type="text" [(ngModel)]="filter.author" id="author" class="form-control" name="author"
                         placeholder="Enter author" formControlName="author"
-                        [ngClass]="{ 'is-invalid': submitted && f.author.errors }" pattern="[A-Za-z ]{3,32}"
+                        [ngClass]="{ 'is-invalid': submitted && f.author.errors }" pattern="[A-Za-z ]{1,32}"
                         title="author should contains alphabets only">
                     <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
                         <!-- <div *ngIf="f.author.errors.required">author is required</div>
