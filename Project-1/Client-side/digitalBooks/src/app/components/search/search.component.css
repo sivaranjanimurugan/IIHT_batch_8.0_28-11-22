@@ -28,7 +28,9 @@
 }
 
 .search {
-    min-height: 100vh;
+    min-height: 80vh;
+    overflow-y: scroll;
+    height: 80vh;
 }
 
 /* Clear floats after the columns */
@@ -98,18 +100,4 @@ button[type=submit] {
 button[type=submit]:hover {
     background-color: #ddd;
     color: black;
-}
-
-mat-card {
-     margin: 5px;
-     padding: 5px;
-     width: 50%;
-}
-
-mat-card-image {
-    float: left;
-}
-
-mat-card-header{
-    float: right;
 }
