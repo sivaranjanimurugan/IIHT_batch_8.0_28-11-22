@@ -1,1 +1,27 @@
-<p>notification works!</p>
+<div class="container ps-md-0 custom" class="p-3">
+  <div class="text-center pt-2">
+      <h2 class="fs-5 text-decoration-underline">All Notifications</h2>
+  </div>
+  <!-- <div class="text-end p-2">
+      <button type="button" (click)="sortBooks()" class="btn btn-outline-warning mx-2">SortByPrice</button>
+      <button type="button" (click)="getAllBooks()" class="btn btn-outline-info">Refresh</button>
+  </div> -->
+  <div class="container-fluid tableFixHead">
+      <table class="table table-striped align-middle">
+          <thead>
+              <tr class="fs-6">
+                  <th scope="col">S.No</th>
+                  <th scope="col">Message</th>
+                  <th scope="col">Created Time</th>
+              </tr>
+          </thead>
+          <tbody *ngFor="let n of notifications, index as i">
+              <tr class="fs-6">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{n.msg}}</td>
+                  <td>{{n.createdTime}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

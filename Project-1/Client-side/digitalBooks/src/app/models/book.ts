@@ -31,3 +31,9 @@ export class SubscribeDetails {
     subRole: string = '';
     isSubscribed: boolean = false;
 }
+
+export class Notification {
+    username: string = '';
+    msg: string = '';
+    createdTime: any;
+}

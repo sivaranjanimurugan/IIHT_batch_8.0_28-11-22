@@ -72,5 +72,9 @@ export class BookService {
     return this.http.get(BASE_URL + "/reader/getall/by-user/" + subName, this.httpOptions);
   }
 
+  getAllNotification() {
+    return this.http.get(BASE_URL + "/getall/notify/by-user/" + this.tokenService.getUser().username, this.httpOptions);
+  }
+
 
 }

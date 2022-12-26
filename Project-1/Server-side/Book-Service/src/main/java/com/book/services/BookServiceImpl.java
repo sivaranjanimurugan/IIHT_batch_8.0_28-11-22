@@ -1,6 +1,7 @@
 package com.book.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class BookServiceImpl implements IBookService {
 
 	@Autowired
 	private BookSubcribeRepository subscribeRepo;
-	
+
 	@Autowired
 	private NotificationRepository noteRepo;
 
@@ -60,15 +61,20 @@ public class BookServiceImpl implements IBookService {
 	@Override
 	public void changeBookStatus(Long id, Boolean isActive) {
 		List<BookSubscriptionDetails> subDetails = subscribeRepo.findAllBookBybookId(id);
+		List<Notification> list = new ArrayList<>();
 		for (BookSubscriptionDetails sub : subDetails) {
 			Notification note = new Notification();
 			note.setUsername(sub.getSubName());
 			if (isActive) {
-				note.setMsg("Book name " + sub.getBook().getTitle() + " was UnBlocked By Author");
+				note.setMsg("Book name " + sub.getBook().getTitle() + " was unblocked by Author");
 			} else {
-				note.setMsg("Book name " + sub.getBook().getTitle() + " was Blocked By Author");
+				note.setMsg("Book name " + sub.getBook().getTitle() + " was blocked by Author");
 			}
+			list.add(note);
 		}
+		// save notification
+		noteRepo.saveAll(list);
+
 		bookRepo.updateActiveById(isActive, id);
 	}
 
