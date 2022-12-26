@@ -60,8 +60,6 @@ export class LoginComponent implements OnInit {
     const observables = this.userService.login(this.request);
     observables.subscribe(
       async (res: any) => {
-        // console.log(res['jwtToken']);
-        // localStorage.setItem("token", res['jwtToken']);
         this.tokenStorage.saveToken(res.jwtToken);
         this.tokenStorage.saveUser({
           "username": res.username,
@@ -71,7 +69,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.successSnackBar("You are logging. Please wait...");
-        await delay(5000);
+        await delay(4000);
         this.reloadPage();
       }, err => {
         this.errorSnackBar("Something went wrong. Please try again...");

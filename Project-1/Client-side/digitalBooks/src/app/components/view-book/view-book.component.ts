@@ -56,7 +56,7 @@ export class ViewBookComponent implements OnInit {
     observable.subscribe(
       (res) => {
         // console.log(res);
-        this.books.splice(index, 1);
+        // this.books.splice(index, 1);
         this.successSnackBar("Book blocked successfully!");
       }, (err) => {
         this.errorSnackBar("Something went wrong !, Please try again");
@@ -71,7 +71,7 @@ export class ViewBookComponent implements OnInit {
     observable.subscribe(
       (res) => {
         // console.log(res);
-        this.books.splice(index, 1);
+        // this.books.splice(index, 1);
         this.successSnackBar("Book unblocked successfully!");
       }, (err) => {
         this.errorSnackBar("Something went wrong !, Please try again");

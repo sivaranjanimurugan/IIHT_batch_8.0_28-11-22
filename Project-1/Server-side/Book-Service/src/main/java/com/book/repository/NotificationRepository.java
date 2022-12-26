@@ -10,6 +10,6 @@ import com.book.entity.Notification;
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification, Long>{
 	
-	List<Notification> findAllByUsername(String username);
+	List<Notification> findAllByUsernameOrderByCreatedTimeDesc(String username);
 
 }

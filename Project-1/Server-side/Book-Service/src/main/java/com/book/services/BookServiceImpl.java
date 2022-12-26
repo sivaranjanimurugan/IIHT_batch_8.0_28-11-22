@@ -140,13 +140,11 @@ public class BookServiceImpl implements IBookService {
 
 	@Override
 	public void deleteBook(Long id) {
-//		Book book = getBookById(id);
-//		book.getBookContentDetails().
 		bookRepo.deleteById(id);
 	}
 
 	@Override
 	public List<Notification> getAllNoteByuser(String username) {
-		return noteRepo.findAllByUsername(username);
+		return noteRepo.findAllByUsernameOrderByCreatedTimeDesc(username);
 	}
 }

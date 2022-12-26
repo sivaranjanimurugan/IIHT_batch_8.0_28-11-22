@@ -17,7 +17,6 @@ export class AddBookComponent implements OnInit {
   book: Book = new Book();
   bookContent: BookContent = new BookContent();
   BookContentList: BookContent[] = [];
-  file: any;
 
   constructor(private formBuilder: FormBuilder,
     private bookService: BookService,
@@ -27,7 +26,7 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {
     //Add User form validations
     this.bookForm = this.formBuilder.group({
-      logo: ['', []],
+      logo: ['', [Validators.required]],
       title: ['', [Validators.required, Validators.pattern]],
       description: ['', [Validators.required, Validators.pattern]],
       category: ['', [Validators.required, Validators.pattern]],
@@ -38,17 +37,6 @@ export class AddBookComponent implements OnInit {
       isActive: ['', [Validators.required]],
       contentType: ['', [Validators.required, Validators.pattern]],
       content: ['', [Validators.required]]
-      // logo: ['', []],
-      // title: ['', []],
-      // description: ['', []],
-      // category: ['', []],
-      // price: ['', []],
-      // author: ['', []],
-      // publisher: ['', []],
-      // publishedDate: ['', []],
-      // isActive: ['', []],
-      // contentType: ['', []],
-      // content: ['', []]
     });
   }
 
@@ -67,26 +55,16 @@ export class AddBookComponent implements OnInit {
     }
   }
 
-  onFileChange(event: any) {
-    this.file = event.target.files[0];
-    // console.log(this.file);
-  }
-
   //create new book
   createBook() {
-    //     let bytes: any[] = [];
-    //     const arrayBuffer = await this.file.arrayBuffer()
-    //     const uint8array = new Uint8Array(arrayBuffer)
-    //     console.log(uint8array);
-    //     var base64 = btoa(String.fromCharCode(null, uint8array));
-    // var url = 'data:image/jpeg;base64,' + base64;
+    this.BookContentList = [];
     this.BookContentList.push(this.bookContent);
     this.book.bookContentDetails = this.BookContentList;
     const observables = this.bookService.createBook(this.book);
     observables.subscribe(
       (res: any) => {
         // console.log(res);
-        this.successSnackBar("Book loaded successfully!");
+        this.successSnackBar("Book saved successfully!");
       }, (error) => {
         this.errorSnackBar("Something went wrong !, Please try again");
         console.log(error);

@@ -6,14 +6,15 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="../../../assets/book-image.jfif" class="img-fluid rounded-start" alt="book"
-                                style="height: 100%;">
+                            <img [src]="b.logo" class="img-fluid rounded-start" alt="book" style="height: 100%;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title fs-6 badge bg-primary text-wrap">{{b.title}}</h5>
                                 <p class="card-text">Author: {{b.author}}</p>
                                 <p class="card-text">Category: {{b.category}}</p>
+                                <p class="card-text">Publisher: {{b.publisher}}</p>
+                                <p class="card-text">Published Date: {{b.publishedDate}}</p>
                                 <!-- <p class="card-text"> -->
                                 <ul class="card-text list-group" *ngFor="let c of b.bookContentDetails, index as i">
                                     <li class="list-group-item m-1">{{c.contentType}}:

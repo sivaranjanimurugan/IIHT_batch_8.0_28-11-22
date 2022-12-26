@@ -2,7 +2,6 @@ package com.user.models;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Book {
 
 	private Long id;
-	private Byte[] logo;
+	private String logo;
 	private String title;
 	private String description;
 	private String category;
@@ -37,11 +36,11 @@ public class Book {
 		this.id = id;
 	}
 
-	public Byte[] getLogo() {
+	public String getLogo() {
 		return logo;
 	}
 
-	public void setLogo(Byte[] logo) {
+	public void setLogo(String logo) {
 		this.logo = logo;
 	}
 
@@ -143,11 +142,10 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", logo=" + Arrays.toString(logo) + ", title=" + title + ", description="
-				+ description + ", category=" + category + ", price=" + price + ", author=" + author + ", publisher="
-				+ publisher + ", publishedDate=" + publishedDate + ", createdTime=" + createdTime + ", updatedTime="
-				+ updatedTime + ", isActive=" + isActive + ", bookContentDetails=" + bookContentDetails
-				+ ", bookSubDetails=" + bookSubDetails + "]";
+		return "Book [id=" + id + ", logo=" + logo + ", title=" + title + ", description=" + description + ", category="
+				+ category + ", price=" + price + ", author=" + author + ", publisher=" + publisher + ", publishedDate="
+				+ publishedDate + ", createdTime=" + createdTime + ", updatedTime=" + updatedTime + ", isActive="
+				+ isActive + ", bookContentDetails=" + bookContentDetails + ", bookSubDetails=" + bookSubDetails + "]";
 	}
 
 }

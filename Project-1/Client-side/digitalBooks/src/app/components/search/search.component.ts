@@ -65,7 +65,7 @@ export class SearchComponent implements OnInit {
     const promise = this.bookService.searchBooks(this.filter);
     promise.subscribe(
       (res) => {
-        // console.log(res);
+        console.log(res);
         this.books = res as Book[];
         this.successSnackBar("Book loaded successfully!");
       }, (err) => {

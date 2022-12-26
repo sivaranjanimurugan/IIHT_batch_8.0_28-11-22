@@ -8,8 +8,12 @@
                 <div class="column">
                     <label for="logo">Logo</label>
                     <br />
-                    <input type="file" (change)="onFileChange($event)" accept="image/*" id="logo" class="form-control"
-                        name="logo" placeholder="Enter your category" formControlName="logo">
+                    <input type="text" [(ngModel)]="book.logo" id="logo" class="form-control" name="logo"
+                        placeholder="Enter your logo" formControlName="logo"
+                        [ngClass]="{ 'is-invalid': submitted && f.logo.errors }" title="Logo should contains url only">
+                    <div *ngIf="submitted && f.logo.errors" class="invalid-feedback">
+                        <div *ngIf="f.logo.errors.required">Logo is required</div>
+                    </div>
                 </div>
                 <div class="column">
                     <label for="title">Title</label>
@@ -95,10 +99,10 @@
                     <br />
                     <input type="date" [(ngModel)]="book.publishedDate" id="publishedDate" class="form-control"
                         name="publishedDate" placeholder="Enter publishedDate" formControlName="publishedDate"
-                        title="publishedDate should contains alphabets only">
-                    <!-- <div *ngIf="submitted && f.publishedDate.errors" class="invalid-feedback">
-                        <div *ngIf="f.publishedDate.errors.required">publishedDate is required</div>
-                    </div> -->
+                        title="publishedDate should contains date only">
+                    <div *ngIf="submitted && f.publishedDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.publishedDate.errors.required">PublishedDate is required</div>
+                    </div>
                 </div>
                 <div class="column">
                     <label for="isActive">Book Status</label>

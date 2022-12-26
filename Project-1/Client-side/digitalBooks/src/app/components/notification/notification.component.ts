@@ -22,31 +22,39 @@ export class NotificationComponent implements OnInit {
     this.getAllNotification();
   }
 
-    //get all notifications
-    getAllNotification() {
-      const promise = this.bookService.getAllNotification();
-      promise.subscribe(
-        (res) => {
-          console.log(res);
-          this.notifications = res as Notification[];
-          this.successSnackBar("Notification loaded successfully!");
-        }, (err) => {
-          this.errorSnackBar("Something went wrong !, Please try again");
-          console.log(err);
-        }
-      );
-    }
+  //get all notifications
+  getAllNotification() {
+    const promise = this.bookService.getAllNotification();
+    promise.subscribe(
+      (res) => {
+        console.log(res);
+        this.notifications = res as Notification[];
+        this.successSnackBar("Notification loaded successfully!");
+      }, (err) => {
+        this.errorSnackBar("Something went wrong !, Please try again");
+        console.log(err);
+      }
+    );
+  }
 
-    successSnackBar(message: string) {
-      this.snackBar.open(message, 'X', {
-        duration: 5000, panelClass: 'snackbar-success'
-      });
-    }
-  
-    errorSnackBar(message: string) {
-      this.snackBar.open(message, 'X', {
-        duration: 5000, panelClass: 'snackbar-error'
-      });
-    }
+  successSnackBar(message: string) {
+    this.snackBar.open(message, 'X', {
+      duration: 5000, panelClass: 'snackbar-success'
+    });
+  }
+
+  errorSnackBar(message: string) {
+    this.snackBar.open(message, 'X', {
+      duration: 5000, panelClass: 'snackbar-error'
+    });
+  }
+
+  //sort notification by datetime
+  sortNotifications() {
+    this.notifications.sort((n1, n2) => {
+      return +new Date(n1.createdTime) - +new Date(n2.createdTime);
+    })
+    this.successSnackBar("Book sorted successfully!");
+  }
 
 }
