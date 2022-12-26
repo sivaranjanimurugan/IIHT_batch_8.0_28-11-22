@@ -3,6 +3,7 @@ package com.book.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.book.models.BookFilter;
 import com.book.services.IBookService;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AuthorController {
 
 	@Autowired
@@ -51,7 +53,7 @@ public class AuthorController {
 	public ResponseEntity<?> searchBooks(@RequestBody BookFilter filter) {
 		return new ResponseEntity<>(bookService.searchBook(filter), HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteBook(@PathVariable("id") Long id) {
 		Book book = bookService.getBookById(id);
