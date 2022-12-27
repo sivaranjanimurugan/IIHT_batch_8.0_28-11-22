@@ -1,5 +1,11 @@
 <!--Search Items-->
 <div class="container-fluid ps-md-0">
+    <div class="container-fluid" style="width: 30%;">
+        <div class="d-flex justify-content-center p-2 m-2" role="search">
+            <input class="form-control me-2 fs-6" type="search" (keyup)="onSearch($event)"
+                placeholder="Search By Title, Author, Category" aria-label="Search">
+        </div>
+    </div>
     <div class="container-fluid search p-3 mx-1">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col" *ngFor="let b of books, index as i">

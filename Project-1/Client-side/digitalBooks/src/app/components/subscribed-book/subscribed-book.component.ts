@@ -12,7 +12,10 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class SubscribedBookComponent implements OnInit {
   books: Book[] = [];
+  booklist: Book[] = [];
+  searchResult: Book[] = [];
   subDetails: SubscribeDetails = new SubscribeDetails();
+  search: string = '';
 
   constructor(
     private bookService: BookService,
@@ -32,6 +35,7 @@ export class SubscribedBookComponent implements OnInit {
       (res) => {
         console.log(res);
         this.books = res as Book[];
+        this.booklist = res as Book[];
         this.successSnackBar("Book loaded successfully!");
       }, (err) => {
         this.errorSnackBar("Something went wrong !, Please try again");
@@ -49,6 +53,7 @@ export class SubscribedBookComponent implements OnInit {
     observable.subscribe(
       (res) => {
         this.books.splice(index, 1);
+        this.booklist.splice(index, 1);
         this.successSnackBar("Book unsubscribed successfully!");
       }, (err) => {
         this.errorSnackBar("Something went wrong !, Please try again");
@@ -69,5 +74,15 @@ export class SubscribedBookComponent implements OnInit {
     });
   }
 
-
+  onSearch(event: any) {
+    this.search = event.target.value.toLowerCase();
+    if (!(this.search === '')) {
+      this.searchResult = this.books.filter(filtered =>
+        (filtered.title.toLowerCase().includes(this.search) || filtered.author.toLowerCase().includes(this.search) || filtered.category.toLowerCase().includes(this.search)));
+      this.search = ''
+      this.books = this.searchResult;
+    } else {
+      this.books = this.booklist;
+    }
+  }
 }

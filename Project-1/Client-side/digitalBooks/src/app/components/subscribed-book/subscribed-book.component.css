@@ -45,8 +45,7 @@
     font: 1em sans-serif;
 }
 
-button[type=submit] {
-    /* float: right; */
+/* button[type=submit] {
     width: 20%;
     background-color: #55b7d4;
     color: white;
@@ -60,7 +59,7 @@ button[type=submit] {
 button[type=submit]:hover {
     background-color: #ddd;
     color: black;
-}
+} */
 
 .snackbar-success {
     background-color: green;
